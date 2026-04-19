@@ -1,0 +1,34 @@
+# 01 Architecture
+
+## Core idea
+
+Use a layered memory architecture instead of transcript dumping.
+
+- Durable memory is explicit and structured.
+- Session context is temporary and isolated.
+- Platform behavior is adapted without polluting neutral rules.
+
+## Main components
+
+1. Memory layers
+- `core`: neutral durable rules
+- `platform`: environment-specific adapter rules
+- `learnings`: reusable lessons and recurring failures
+- `short_term`: temporary context and candidates
+
+2. Protocol files
+- `memory_index.md`: source-of-truth index
+- `memory_schema.md`: entry schema
+- `memory_intake_checklist.md`: write gate
+- `memory_change_log.md`: structural change audit log
+
+3. Execution skills
+- `forge`: source material -> durable upgrades
+- `post-collaboration-distillation`: post-task conservative distillation
+- `mem-search`: cross-session recall workflow
+
+## Why this architecture
+
+- keeps memory usable under long-running work
+- minimizes token waste from replaying full transcripts
+- reduces policy drift by separating scope and lifecycle
