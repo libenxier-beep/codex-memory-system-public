@@ -2,6 +2,8 @@
 
 A public, sanitized blueprint of a layered long-term memory system for coding agents.
 
+中文说明请看: [README.zh-CN.md](./README.zh-CN.md)
+
 ## What this repository contains
 
 - Layered memory architecture (`core / platform / learnings / short_term`)
