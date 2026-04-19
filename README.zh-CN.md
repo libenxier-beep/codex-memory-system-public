@@ -2,6 +2,10 @@
 
 这是一个公开的、脱敏后的分层长期记忆系统蓝图，适用于编码代理协作场景。
 
+英文版本请看: [README.md](./README.md)
+
+关键文件中文版统一使用 `*.zh-CN.md` 后缀。
+
 ## 这个仓库包含什么
 
 - 分层记忆架构（`core / platform / learnings / short_term`）

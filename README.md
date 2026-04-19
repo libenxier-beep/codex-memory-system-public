@@ -3,6 +3,7 @@
 A public, sanitized blueprint of a layered long-term memory system for coding agents.
 
 中文说明请看: [README.zh-CN.md](./README.zh-CN.md)
+Chinese docs in all key files use the `*.zh-CN.md` suffix.
 
 ## What this repository contains
 
