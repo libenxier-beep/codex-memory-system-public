@@ -71,6 +71,7 @@ python3 scripts/validate_memory.py --root examples/sanitized-memory --policy che
 3. 启用 `docs/05-safety-and-governance.md` 的写入门禁
 4. 增加 `docs/06-operations-and-audit.md` 的审计机制
 5. 按 `docs/07-migration-pattern.md` 执行迁移检查单
+6. 建议让你自己的 Agent 把旧的平铺记忆文件迁移到这套分层结构。
 
 ## 许可证
 

@@ -70,6 +70,7 @@ Use placeholders such as `$CODEX_HOME`, `PROJECT_ROOT`, and `AGENT_HOME`.
 3. Enforce write gates from `docs/05-safety-and-governance.md`
 4. Add audit trail from `docs/06-operations-and-audit.md`
 5. Run migration checklist in `docs/07-migration-pattern.md`
+6. Ask your own agent to migrate your legacy flat memory files into this layered structure.
 
 ## License
 
