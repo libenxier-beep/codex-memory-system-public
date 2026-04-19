@@ -14,6 +14,9 @@
 - 记忆写入安全门
 - 会后沉淀与历史召回流程
 - 从扁平旧文件迁移到分层真源的最小增量模式
+- 可执行的一键初始化脚本
+- 可落地的校验器与 CI 质量门禁
+- 可直接跑通的脱敏样例
 
 ## 设计目标
 
@@ -32,8 +35,23 @@
 - `docs/05-safety-and-governance.md`：安全与治理规则
 - `docs/06-operations-and-audit.md`：运维与审计实践
 - `docs/07-migration-pattern.md`：最小增量迁移模式
+- `docs/08-quickstart.md`：15 分钟可执行上手
 - `templates/memory-item-template.md`：长期记忆条目模板
 - `templates/distillation-report-template.md`：会后沉淀报告模板
+- `scripts/bootstrap.sh`：一键初始化分层记忆目录
+- `scripts/validate_memory.py`：schema 与安全规则校验器
+- `checks/policy.json`：校验策略契约
+- `.github/workflows/validate-memory.yml`：PR 与主干自动校验
+- `examples/sanitized-memory/`：可运行脱敏样例
+
+## 快速开始
+
+```bash
+bash scripts/bootstrap.sh /tmp/agent-memory
+python3 scripts/validate_memory.py --root examples/sanitized-memory --policy checks/policy.json
+```
+
+完整步骤见 `docs/08-quickstart.md`。
 
 ## 脱敏策略
 

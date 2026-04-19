@@ -13,6 +13,9 @@ Chinese docs in all key files use the `*.zh-CN.md` suffix.
 - Safety gates for memory writes
 - Distillation and recall workflows
 - Migration pattern from legacy flat files to layered source-of-truth
+- Executable bootstrap script for new projects
+- Validator script and CI checks for enforceable quality gates
+- Sanitized runnable examples
 
 ## Design goals
 
@@ -31,8 +34,23 @@ Chinese docs in all key files use the `*.zh-CN.md` suffix.
 - `docs/05-safety-and-governance.md` - safety, quality, and governance
 - `docs/06-operations-and-audit.md` - operational practice and auditability
 - `docs/07-migration-pattern.md` - minimal-delta migration pattern
+- `docs/08-quickstart.md` - 15-minute executable quickstart
 - `templates/memory-item-template.md` - durable memory entry template
 - `templates/distillation-report-template.md` - post-session distillation template
+- `scripts/bootstrap.sh` - one-command layered memory scaffold
+- `scripts/validate_memory.py` - memory schema and safety validator
+- `checks/policy.json` - validator policy contract
+- `.github/workflows/validate-memory.yml` - PR and mainline automation checks
+- `examples/sanitized-memory/` - runnable sanitized example set
+
+## Quickstart
+
+```bash
+bash scripts/bootstrap.sh /tmp/agent-memory
+python3 scripts/validate_memory.py --root examples/sanitized-memory --policy checks/policy.json
+```
+
+See `docs/08-quickstart.md` for full setup.
 
 ## Sanitization policy
 

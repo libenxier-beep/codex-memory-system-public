@@ -1,0 +1,27 @@
+name: Validate Memory System
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Bootstrap smoke test
+        run: |
+          bash scripts/bootstrap.sh /tmp/agent-memory
+          test -f /tmp/agent-memory/memories/memory_index.md
+
+      - name: Validate sanitized examples
+        run: |
+          python3 scripts/validate_memory.py --root examples/sanitized-memory --policy checks/policy.json
