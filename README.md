@@ -7,11 +7,13 @@ Chinese docs in all key files use the `*.zh-CN.md` suffix.
 
 ## What this repository contains
 
-- Layered memory architecture (`core / platform / learnings / short_term`)
+- Layered memory architecture (`core / platform / learnings / rollout_summaries`)
 - Memory lifecycle (capture -> classify -> deduplicate -> route -> review)
 - Loading strategy (Ring0-Ring3 progressive loading)
 - Safety gates for memory writes
 - Distillation and recall workflows
+- Default long-task handoff location: `PROJECT_ROOT/docs/progress.md`
+- Optional runtime sidecar (`memory-sidecar/`) for evidence, sessions, and lightweight indexes
 - Migration pattern from legacy flat files to layered source-of-truth
 - Executable bootstrap script for new projects
 - Validator script and CI checks for enforceable quality gates
@@ -22,7 +24,7 @@ Chinese docs in all key files use the `*.zh-CN.md` suffix.
 1. Single source of truth
 2. Low maintenance cost
 3. High signal, low pollution
-4. Explicit boundaries between durable memory and session context
+4. Explicit boundaries among durable memory, retrospective memory, and runtime session context
 5. Auditable structural changes
 
 ## Repository structure
@@ -70,7 +72,7 @@ Use placeholders such as `$CODEX_HOME`, `PROJECT_ROOT`, and `AGENT_HOME`.
 3. Enforce write gates from `docs/05-safety-and-governance.md`
 4. Add audit trail from `docs/06-operations-and-audit.md`
 5. Run migration checklist in `docs/07-migration-pattern.md`
-6. Ask your own agent to migrate your legacy flat memory files into this layered structure.
+6. Ask your own agent to migrate your legacy flat memory files into this layered structure and attach a `memory-sidecar/` only if runtime evidence recall is worth the extra complexity.
 
 ## License
 

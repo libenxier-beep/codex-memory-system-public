@@ -21,7 +21,10 @@ Expected result:
 - `/tmp/agent-memory/memories/core`
 - `/tmp/agent-memory/memories/platform`
 - `/tmp/agent-memory/memories/learnings`
-- `/tmp/agent-memory/memories/short_term`
+- `/tmp/agent-memory/memories/rollout_summaries`
+- `/tmp/agent-memory/memory-sidecar/evidence`
+- `/tmp/agent-memory/memory-sidecar/sessions`
+- `/tmp/agent-memory/memory-sidecar/indexes`
 
 ## Step 2: Validate bundled examples
 
@@ -40,7 +43,8 @@ Expected output: `VALIDATION PASSED`
 ## Step 4: First practical usage
 
 - Create one durable rule in `core/` with frontmatter
-- Add one session summary in `short_term/session_summaries/`
+- Add one runtime session note in `memory-sidecar/sessions/`
+- For a real project, keep the current-round handoff in `PROJECT_ROOT/docs/progress.md`
 - Run validator again
 
 ## Troubleshooting

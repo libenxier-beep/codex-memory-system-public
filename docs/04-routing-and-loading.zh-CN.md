@@ -13,6 +13,7 @@
 
 ### Ring 2（深度参考）
 仅在具体决策需要时加载。
+- 只有当任务涉及当前活动、最近 session 状态或原始证据回钻时，才查询 `memory-sidecar/`。
 
 ### Ring 3（冷记忆）
 仅在显式检索或事故回放时加载。
@@ -24,6 +25,13 @@
 1. 先查整理后的 memory index/summary
 2. 再查相关 rollout/session 证据
 3. 最后给基于证据的总结回答
+
+## 运行时查询顺序
+
+1. 先看项目内 `docs/progress.md` 的当前 handoff
+2. 再看 `memory-sidecar/indexes/` 的 current/recent 入口
+3. 不够再读 `memory-sidecar/sessions/` 的压缩上下文
+4. 只有确实需要原始证明时才读 `memory-sidecar/evidence/`
 
 ## 路由优先级
 

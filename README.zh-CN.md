@@ -8,11 +8,12 @@
 
 ## 这个仓库包含什么
 
-- 分层记忆架构（`core / platform / learnings / short_term`）
+- 分层记忆架构（`core / platform / learnings / rollout_summaries`）
 - 记忆生命周期（capture -> classify -> deduplicate -> route -> review）
 - 加载策略（Ring0-Ring3 渐进加载）
 - 记忆写入安全门
 - 会后沉淀与历史召回流程
+- 可选的运行时 sidecar（`memory-sidecar/`），用于 evidence、sessions 与轻索引
 - 从扁平旧文件迁移到分层真源的最小增量模式
 - 可执行的一键初始化脚本
 - 可落地的校验器与 CI 质量门禁
@@ -23,7 +24,7 @@
 1. 单一真源
 2. 低维护成本
 3. 高信号、低污染
-4. 长期记忆与会话上下文边界明确
+4. 长期记忆、复盘层、运行时上下文边界明确
 5. 结构性改动可审计
 
 ## 仓库结构
@@ -71,7 +72,7 @@ python3 scripts/validate_memory.py --root examples/sanitized-memory --policy che
 3. 启用 `docs/05-safety-and-governance.md` 的写入门禁
 4. 增加 `docs/06-operations-and-audit.md` 的审计机制
 5. 按 `docs/07-migration-pattern.md` 执行迁移检查单
-6. 建议让你自己的 Agent 把旧的平铺记忆文件迁移到这套分层结构。
+6. 建议让你自己的 Agent 把旧的平铺记忆文件迁移到这套分层结构；只有在确实需要运行时证据召回时，再额外接入 `memory-sidecar/`。
 
 ## 许可证
 

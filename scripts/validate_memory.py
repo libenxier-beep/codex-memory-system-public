@@ -59,7 +59,7 @@ def main() -> int:
         # only validate durable entry frontmatter for non-README files in key layers
         if path.name.lower() == "readme.md":
             continue
-        if rel.parts[0] not in {"core", "platform", "learnings", "short_term"}:
+        if rel.parts[0] not in {"core", "platform", "learnings", "short_term", "memory-sidecar"}:
             continue
 
         fm = parse_frontmatter(text)

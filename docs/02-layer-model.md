@@ -11,14 +11,18 @@ Use only when behavior depends on a specific runtime or toolchain.
 ### learnings
 Use for review-derived lessons, recurring failure patterns, and future improvement requests.
 
-### short_term
-Use for active task context, candidate memories, and summary-only session outputs.
+### rollout_summaries
+Use for complete round retrospectives, evidence-backed context, and promotion candidates that still need a higher-confidence durable judgment.
+
+### memory-sidecar
+Use for runtime-only materials: raw evidence, session-level compressed state, and lightweight current/recent indexes.
 
 ## Boundary rules
 
 - Never put temporary task state into `core`.
 - Never put platform-specific quirks into `core`.
-- Never let `short_term` bypass quality gates into `core` directly.
+- Never let runtime sidecar materials bypass retrospective review into `core` directly.
+- Keep handoff artifacts in the project workspace, not in memory layers.
 - Route first by scope, then by quality score.
 
 ## Source-of-truth rule

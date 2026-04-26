@@ -13,6 +13,7 @@ Migrate from flat legacy memory files to layered architecture with minimal disru
 5. Keep stronger source as single truth
 6. Apply minimal edits first
 7. Log structural changes
+8. Freeze legacy sources before deletion when they still anchor runtime or retrospective context
 
 ## Conflict policy
 
@@ -27,3 +28,4 @@ For each conflict:
 - do not create parallel systems for same behavior
 - do not migrate low-value complexity
 - do not overwrite existing working rules blindly
+- do not leave raw evidence, session compression, and retrospectives under ambiguous bucket names after migration

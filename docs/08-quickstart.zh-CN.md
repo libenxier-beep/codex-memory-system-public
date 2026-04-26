@@ -21,7 +21,10 @@ bash scripts/bootstrap.sh /tmp/agent-memory
 - `/tmp/agent-memory/memories/core`
 - `/tmp/agent-memory/memories/platform`
 - `/tmp/agent-memory/memories/learnings`
-- `/tmp/agent-memory/memories/short_term`
+- `/tmp/agent-memory/memories/rollout_summaries`
+- `/tmp/agent-memory/memory-sidecar/evidence`
+- `/tmp/agent-memory/memory-sidecar/sessions`
+- `/tmp/agent-memory/memory-sidecar/indexes`
 
 ## 第二步：校验仓库内样例
 
@@ -40,7 +43,8 @@ python3 scripts/validate_memory.py --root examples/sanitized-memory --policy che
 ## 第四步：首次实战
 
 - 在 `core/` 写一条带 frontmatter 的长期规则
-- 在 `short_term/session_summaries/` 写一条会话摘要
+- 在 `memory-sidecar/sessions/` 写一条运行时 session 摘要
+- 在真实项目里，把当前回合 handoff 写进 `PROJECT_ROOT/docs/progress.md`
 - 再跑一次校验器
 
 ## 故障排查

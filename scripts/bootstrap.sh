@@ -3,13 +3,18 @@ set -euo pipefail
 
 TARGET_ROOT="${1:-${AGENT_HOME:-$HOME/.agent-memory}}"
 MEM_ROOT="$TARGET_ROOT/memories"
+SIDECAR_ROOT="$TARGET_ROOT/memory-sidecar"
 
 mkdir -p \
   "$MEM_ROOT/core" \
   "$MEM_ROOT/platform" \
   "$MEM_ROOT/learnings" \
-  "$MEM_ROOT/short_term/candidates" \
-  "$MEM_ROOT/short_term/session_summaries"
+  "$MEM_ROOT/rollout_summaries" \
+  "$MEM_ROOT/short_term" \
+  "$SIDECAR_ROOT/evidence" \
+  "$SIDECAR_ROOT/sessions" \
+  "$SIDECAR_ROOT/indexes" \
+  "$SIDECAR_ROOT/policies"
 
 cat > "$MEM_ROOT/README.md" <<'EOM'
 # Memories System
@@ -19,7 +24,7 @@ Layered long-term memory system.
 - core: durable neutral rules
 - platform: runtime-specific adapters
 - learnings: reusable review output
-- short_term: temporary context
+- rollout_summaries: complete round retrospectives
 EOM
 
 cat > "$MEM_ROOT/memory_index.md" <<'EOM'
@@ -124,21 +129,25 @@ cat > "$MEM_ROOT/learnings/FEATURE_REQUESTS.md" <<'EOM'
 EOM
 
 cat > "$MEM_ROOT/short_term/README.md" <<'EOM'
-# Short-Term Memory
+# Short-Term Memory (Legacy)
 
-Temporary task/session context only.
+Retired legacy layer kept only for migration traceability.
 EOM
 
-cat > "$MEM_ROOT/short_term/candidates/README.md" <<'EOM'
-# Candidate Memories
+cat > "$SIDECAR_ROOT/README.md" <<'EOM'
+# Memory Sidecar
 
-Promising but not yet stable memory candidates.
+- evidence: raw or near-raw execution traces
+- sessions: session-level compressed runtime state
+- indexes: lightweight current/recent lookup entrypoints
+- policies: read, promotion, and retention rules
 EOM
 
-cat > "$MEM_ROOT/short_term/session_summaries/README.md" <<'EOM'
-# Session Summaries
+cat > "$SIDECAR_ROOT/policies/read-policy.md" <<'EOM'
+# Read Policy
 
-Summary-only outputs that are not durable enough for long-term memory.
+- Do not load the sidecar by default.
+- Query indexes first, then sessions, then raw evidence only when needed.
 EOM
 
-printf 'Bootstrapped memory system at: %s\n' "$MEM_ROOT"
+printf 'Bootstrapped memory system at: %s\n' "$TARGET_ROOT"

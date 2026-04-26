@@ -5,6 +5,9 @@
 - 仅在有意义会话后运行任务后沉淀
 - 信号弱时优先输出 summary-only
 - 会话历史与长期记忆保持隔离
+- 默认把长任务的滚动 handoff 放在项目内 `docs/progress.md`
+- 只有当下一步队列太吵、影响扫描速度时，才拆出单独的 `docs/next_steps.md`
+- 运行时证据放 `memory-sidecar/`，完整回合复盘放 `rollout_summaries/`
 
 ## 审计工件
 

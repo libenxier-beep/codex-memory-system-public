@@ -2,14 +2,23 @@
 
 ## Lifecycle loop
 
-1. Observe interaction outcome
-2. Extract candidate insights
-3. Classify scope and stability
-4. Compare against existing memory
-5. Decide `add | merge | upgrade | split | discard`
-6. Route to target layer
-7. Log structural changes
-8. Revalidate over time
+1. Capture runtime evidence
+2. Compress one bounded session
+3. Write a complete rollout retrospective
+4. Extract candidate insights
+5. Classify scope and stability
+6. Compare against existing memory
+7. Decide `add | merge | upgrade | split | discard`
+8. Route to target layer
+9. Log structural changes
+10. Revalidate over time
+
+## Layered promotion flow
+
+- `memory-sidecar/evidence` -> raw or near-raw traces
+- `memory-sidecar/sessions` -> compressed runtime context
+- `memories/rollout_summaries` -> full retrospective plus promotion candidates
+- durable memory layers -> stable promoted outputs
 
 ## Deduplication decisions
 
@@ -22,5 +31,5 @@
 ## Retirement decisions
 
 - downgrade `core -> platform` when it stops being neutral
-- downgrade `core/platform -> short_term` when it becomes temporary
+- move durable conclusions back to the runtime sidecar when they prove temporary or too local
 - mark `superseded` instead of deleting when replaced
