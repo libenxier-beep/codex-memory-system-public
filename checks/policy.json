@@ -3,7 +3,7 @@
     "id", "title", "summary", "scope", "applies_to", "type", "stability",
     "source", "evidence", "regression_risk", "supersedes", "last_reviewed", "owner"
   ],
-  "allowed_scopes": ["global", "runtime", "platform", "short_term", "repo", "learning", "core"],
+  "allowed_scopes": ["global", "runtime", "platform", "repo", "learning", "core"],
   "secret_patterns": [
     "AKIA[0-9A-Z]{16}",
     "ghp_[A-Za-z0-9]{36,}",

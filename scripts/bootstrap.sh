@@ -10,7 +10,6 @@ mkdir -p \
   "$MEM_ROOT/platform" \
   "$MEM_ROOT/learnings" \
   "$MEM_ROOT/rollout_summaries" \
-  "$MEM_ROOT/short_term" \
   "$SIDECAR_ROOT/evidence" \
   "$SIDECAR_ROOT/sessions" \
   "$SIDECAR_ROOT/indexes" \
@@ -128,12 +127,6 @@ cat > "$MEM_ROOT/learnings/FEATURE_REQUESTS.md" <<'EOM'
 # Feature Requests
 
 - Track cross-project memory system improvements.
-EOM
-
-cat > "$MEM_ROOT/short_term/README.md" <<'EOM'
-# Short-Term Memory (Legacy)
-
-Retired legacy layer kept only for migration traceability.
 EOM
 
 cat > "$SIDECAR_ROOT/README.md" <<'EOM'
