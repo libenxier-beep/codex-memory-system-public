@@ -20,6 +20,13 @@
 - `memories/rollout_summaries` -> full retrospective plus promotion candidates
 - durable memory layers -> stable promoted outputs
 
+## Personal-memory branch
+
+- private signals -> `personal_memory/logs/raw_signals.md`
+- confirmed growth events -> `personal_memory/logs/growth_log.md`
+- periodic review -> `personal_memory/reviews/weekly.md` and `monthly.md`
+- stable private patterns -> dimension files under `personal_memory/`
+
 ## Deduplication decisions
 
 - `revalidate`: same rule, no meaningful delta

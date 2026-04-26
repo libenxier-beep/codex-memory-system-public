@@ -33,6 +33,12 @@ When user asks about previous work (e.g., "last time", "before"), do retrieval f
 3. `memory-sidecar/sessions/` for compressed runtime context
 4. `memory-sidecar/evidence/` only when raw proof is required
 
+## Personal-memory routing
+
+- Default to `personal_memory/` for life, state, growth, relationship, or self-understanding requests.
+- Read both work memory and personal memory only when the user question explicitly crosses work decisions and personal state.
+- Keep private signals out of work-facing durable memory unless the user explicitly wants a cross-domain synthesis.
+
 ## Routing priority
 
 1. Scope correctness

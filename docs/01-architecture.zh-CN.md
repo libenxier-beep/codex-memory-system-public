@@ -22,13 +22,19 @@
 - `memory-sidecar/indexes`：当前/最近查询入口
 - `memory-sidecar/policies`：读取、晋升、保留规则
 
-3. 协议文件
+3. 私人 personal_memory 支线
+- `personal_memory/logs/raw_signals.md`：宽边界私人候选信号
+- `personal_memory/logs/growth_log.md`：值得保留的成长事件
+- `personal_memory/reviews/weekly.md` 与 `reviews/monthly.md`：周期性提纯
+- 各维度文件：稳定私人模式、价值判断、关系与认知笔记
+
+4. 协议文件
 - `memory_index.md`：主索引与真源声明
 - `memory_schema.md`：记忆条目结构规范
 - `memory_intake_checklist.md`：写入门禁
 - `memory_change_log.md`：结构变更审计日志
 
-4. 执行技能
+5. 执行技能
 - `forge`：把材料转成长期升级
 - `post-collaboration-distillation`：任务后保守沉淀
 - `mem-search`：跨会话召回流程
@@ -39,3 +45,4 @@
 - 减少重复回放整段上下文的 token 浪费
 - 通过范围与生命周期分离降低规则漂移
 - 避免 handoff、运行时证据、回合复盘、长期记忆被塞进同一个模糊容器
+- 让私人自我理解可以并行演化，又不污染工作协作记忆

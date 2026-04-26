@@ -22,13 +22,19 @@ Use a layered memory architecture instead of transcript dumping.
 - `memory-sidecar/indexes`: current/recent lookup entrypoints
 - `memory-sidecar/policies`: read, promotion, and retention rules
 
-3. Protocol files
+3. Private personal-memory branch
+- `personal_memory/logs/raw_signals.md`: broad private candidate signals
+- `personal_memory/logs/growth_log.md`: growth events worth keeping
+- `personal_memory/reviews/weekly.md` and `reviews/monthly.md`: periodic refinement
+- dimension files: stable private patterns, values, relationship and cognition notes
+
+4. Protocol files
 - `memory_index.md`: source-of-truth index
 - `memory_schema.md`: entry schema
 - `memory_intake_checklist.md`: write gate
 - `memory_change_log.md`: structural change audit log
 
-4. Execution skills
+5. Execution skills
 - `forge`: source material -> durable upgrades
 - `post-collaboration-distillation`: post-task conservative distillation
 - `mem-search`: cross-session recall workflow
@@ -39,3 +45,4 @@ Use a layered memory architecture instead of transcript dumping.
 - minimizes token waste from replaying full transcripts
 - reduces policy drift by separating scope and lifecycle
 - keeps handoff, runtime evidence, retrospective memory, and durable memory from collapsing into one bucket
+- allows private self-understanding to evolve in parallel without polluting work-facing memory

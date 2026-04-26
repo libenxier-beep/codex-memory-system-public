@@ -5,6 +5,39 @@ A public, sanitized blueprint of a layered long-term memory system for coding ag
 中文说明请看: [README.zh-CN.md](./README.zh-CN.md)
 Chinese docs in all key files use the `*.zh-CN.md` suffix.
 
+## System Flow
+
+```mermaid
+flowchart LR
+    A["Work / Conversation / Reflection Input"] --> B["Project Handoff<br/>PROJECT_ROOT/docs/progress.md"]
+    A --> C["Raw Evidence<br/>memory-sidecar/evidence"]
+    A --> P["Personal Signal Detection"]
+
+    C --> D["Session Compression<br/>memory-sidecar/sessions"]
+    D --> E["Light Indexes<br/>memory-sidecar/indexes"]
+    D --> F["Round Retrospective<br/>memories/rollout_summaries"]
+
+    F --> G{"Promotion Decision"}
+
+    G --> H["core<br/>durable collaboration rules"]
+    G --> I["platform<br/>runtime adapter rules"]
+    G --> J["learnings<br/>reusable lessons"]
+    G --> K["personal_memory<br/>private long-term understanding"]
+
+    P --> K
+
+    L["Current / Recent Query"] --> B
+    L --> E
+    L --> D
+    L --> C
+
+    M["Historical Recall"] --> F
+    M --> H
+    M --> I
+    M --> J
+    M --> K
+```
+
 ## What this repository contains
 
 - Layered memory architecture (`core / platform / learnings / rollout_summaries`)
@@ -14,6 +47,7 @@ Chinese docs in all key files use the `*.zh-CN.md` suffix.
 - Distillation and recall workflows
 - Default long-task handoff location: `PROJECT_ROOT/docs/progress.md`
 - Optional runtime sidecar (`memory-sidecar/`) for evidence, sessions, and lightweight indexes
+- Optional private `personal_memory/` branch for growth signals, private patterns, and self-understanding
 - Migration pattern from legacy flat files to layered source-of-truth
 - Executable bootstrap script for new projects
 - Validator script and CI checks for enforceable quality gates
@@ -24,7 +58,7 @@ Chinese docs in all key files use the `*.zh-CN.md` suffix.
 1. Single source of truth
 2. Low maintenance cost
 3. High signal, low pollution
-4. Explicit boundaries among durable memory, retrospective memory, and runtime session context
+4. Explicit boundaries among durable memory, retrospective memory, runtime session context, and private personal memory
 5. Auditable structural changes
 
 ## Repository structure
@@ -73,6 +107,7 @@ Use placeholders such as `$CODEX_HOME`, `PROJECT_ROOT`, and `AGENT_HOME`.
 4. Add audit trail from `docs/06-operations-and-audit.md`
 5. Run migration checklist in `docs/07-migration-pattern.md`
 6. Ask your own agent to migrate your legacy flat memory files into this layered structure and attach a `memory-sidecar/` only if runtime evidence recall is worth the extra complexity.
+7. If you need a private personal-growth track, add a separate `personal_memory/` branch instead of mixing those signals into work memory by default.
 
 ## License
 

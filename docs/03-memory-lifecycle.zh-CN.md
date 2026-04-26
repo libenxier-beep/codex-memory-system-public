@@ -20,6 +20,13 @@
 - `memories/rollout_summaries` -> 完整复盘与待晋升结论
 - 长期记忆层 -> 最终稳定产物
 
+## personal_memory 支线
+
+- 私人信号 -> `personal_memory/logs/raw_signals.md`
+- 已确认成长事件 -> `personal_memory/logs/growth_log.md`
+- 周期性筛选 -> `personal_memory/reviews/weekly.md` 与 `monthly.md`
+- 稳定私人模式 -> `personal_memory/` 下的维度文件
+
 ## 去重决策
 
 - `revalidate`：同一规则，无实质增量

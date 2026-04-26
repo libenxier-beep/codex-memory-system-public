@@ -45,6 +45,7 @@ python3 scripts/validate_memory.py --root examples/sanitized-memory --policy che
 - 在 `core/` 写一条带 frontmatter 的长期规则
 - 在 `memory-sidecar/sessions/` 写一条运行时 session 摘要
 - 在真实项目里，把当前回合 handoff 写进 `PROJECT_ROOT/docs/progress.md`
+- 如果需要私人长期理解，再额外建立 `personal_memory/logs/raw_signals.md` 和 `personal_memory/logs/growth_log.md` 作为独立支线
 - 再跑一次校验器
 
 ## 故障排查

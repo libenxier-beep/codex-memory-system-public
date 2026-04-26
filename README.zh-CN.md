@@ -6,6 +6,39 @@
 
 关键文件中文版统一使用 `*.zh-CN.md` 后缀。
 
+## 系统流程图
+
+```mermaid
+flowchart LR
+    A["工作 / 对话 / 反思输入"] --> B["项目 handoff<br/>PROJECT_ROOT/docs/progress.md"]
+    A --> C["原始证据<br/>memory-sidecar/evidence"]
+    A --> P["个人信号识别"]
+
+    C --> D["Session 压缩<br/>memory-sidecar/sessions"]
+    D --> E["轻索引<br/>memory-sidecar/indexes"]
+    D --> F["完整回合复盘<br/>memories/rollout_summaries"]
+
+    F --> G{"晋升判断"}
+
+    G --> H["core<br/>长期协作规则"]
+    G --> I["platform<br/>平台适配规则"]
+    G --> J["learnings<br/>复用经验"]
+    G --> K["personal_memory<br/>私人长期理解"]
+
+    P --> K
+
+    L["当前 / 最近查询"] --> B
+    L --> E
+    L --> D
+    L --> C
+
+    M["历史召回"] --> F
+    M --> H
+    M --> I
+    M --> J
+    M --> K
+```
+
 ## 这个仓库包含什么
 
 - 分层记忆架构（`core / platform / learnings / rollout_summaries`）
@@ -14,6 +47,7 @@
 - 记忆写入安全门
 - 会后沉淀与历史召回流程
 - 可选的运行时 sidecar（`memory-sidecar/`），用于 evidence、sessions 与轻索引
+- 可选的私人 `personal_memory/` 支线，用于成长信号、私人模式和长期自我理解
 - 从扁平旧文件迁移到分层真源的最小增量模式
 - 可执行的一键初始化脚本
 - 可落地的校验器与 CI 质量门禁
@@ -24,7 +58,7 @@
 1. 单一真源
 2. 低维护成本
 3. 高信号、低污染
-4. 长期记忆、复盘层、运行时上下文边界明确
+4. 长期记忆、复盘层、运行时上下文、私人记忆边界明确
 5. 结构性改动可审计
 
 ## 仓库结构
@@ -73,6 +107,7 @@ python3 scripts/validate_memory.py --root examples/sanitized-memory --policy che
 4. 增加 `docs/06-operations-and-audit.md` 的审计机制
 5. 按 `docs/07-migration-pattern.md` 执行迁移检查单
 6. 建议让你自己的 Agent 把旧的平铺记忆文件迁移到这套分层结构；只有在确实需要运行时证据召回时，再额外接入 `memory-sidecar/`。
+7. 如果你需要私人长期成长支线，再单独接入 `personal_memory/`，不要默认和工作记忆混层。
 
 ## 许可证
 

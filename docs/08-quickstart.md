@@ -45,6 +45,7 @@ Expected output: `VALIDATION PASSED`
 - Create one durable rule in `core/` with frontmatter
 - Add one runtime session note in `memory-sidecar/sessions/`
 - For a real project, keep the current-round handoff in `PROJECT_ROOT/docs/progress.md`
+- If you need private self-understanding, add `personal_memory/logs/raw_signals.md` and `personal_memory/logs/growth_log.md` as a separate branch
 - Run validator again
 
 ## Troubleshooting

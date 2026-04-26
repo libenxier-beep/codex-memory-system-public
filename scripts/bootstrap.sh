@@ -14,7 +14,9 @@ mkdir -p \
   "$SIDECAR_ROOT/evidence" \
   "$SIDECAR_ROOT/sessions" \
   "$SIDECAR_ROOT/indexes" \
-  "$SIDECAR_ROOT/policies"
+  "$SIDECAR_ROOT/policies" \
+  "$TARGET_ROOT/personal_memory/logs" \
+  "$TARGET_ROOT/personal_memory/reviews"
 
 cat > "$MEM_ROOT/README.md" <<'EOM'
 # Memories System
@@ -148,6 +150,38 @@ cat > "$SIDECAR_ROOT/policies/read-policy.md" <<'EOM'
 
 - Do not load the sidecar by default.
 - Query indexes first, then sessions, then raw evidence only when needed.
+EOM
+
+cat > "$TARGET_ROOT/personal_memory/README.md" <<'EOM'
+# Personal Memory
+
+- logs/raw_signals.md: broad private candidate signals
+- logs/growth_log.md: confirmed growth events
+- reviews/weekly.md and reviews/monthly.md: periodic refinement
+EOM
+
+cat > "$TARGET_ROOT/personal_memory/logs/raw_signals.md" <<'EOM'
+# Raw Signals
+
+- Broad private candidate signals go here first.
+EOM
+
+cat > "$TARGET_ROOT/personal_memory/logs/growth_log.md" <<'EOM'
+# Growth Log
+
+- Confirmed private growth events go here.
+EOM
+
+cat > "$TARGET_ROOT/personal_memory/reviews/weekly.md" <<'EOM'
+# Weekly Review
+
+- Review raw private signals once a week.
+EOM
+
+cat > "$TARGET_ROOT/personal_memory/reviews/monthly.md" <<'EOM'
+# Monthly Review
+
+- Refine stable private patterns once a month.
 EOM
 
 printf 'Bootstrapped memory system at: %s\n' "$TARGET_ROOT"
