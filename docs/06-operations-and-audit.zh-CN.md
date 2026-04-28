@@ -8,6 +8,7 @@
 - 默认把长任务的滚动 handoff 放在项目内 `docs/progress.md`
 - 只有当下一步队列太吵、影响扫描速度时，才拆出单独的 `docs/next_steps.md`
 - 运行时证据放 `memory-sidecar/`，完整回合复盘放 `rollout_summaries/`
+- 当会话从实现切到会后沉淀，或从沉淀切到 commit 路由时，重跑一次 skill 选择，不要默认沿用上一阶段的技能
 
 ## 审计工件
 

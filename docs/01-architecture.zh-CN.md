@@ -34,10 +34,13 @@
 - `memory_intake_checklist.md`：写入门禁
 - `memory_change_log.md`：结构变更审计日志
 
-5. 执行技能
-- `forge`：把材料转成长期升级
-- `post-collaboration-distillation`：任务后保守沉淀
+5. 核心执行技能
+- `post-collaboration-distillation`：任务后保守沉淀门
+- `memory-commit`：候选批准后的 commit 阶段路由
 - `mem-search`：跨会话召回流程
+
+6. 邻接学习技能
+- `forge`：把外部材料转成长期升级，但不属于默认的任务后记忆维护主流程
 
 ## 为什么这样设计
 

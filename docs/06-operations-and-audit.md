@@ -8,6 +8,7 @@
 - keep the rolling long-task handoff in a project-local `docs/progress.md` by default so a fresh session can resume from one stable visible artifact
 - split a separate `docs/next_steps.md` only when the next-action queue becomes noisy enough that it harms scan speed in `docs/progress.md`
 - keep runtime evidence in `memory-sidecar/` and complete round retrospectives in `rollout_summaries/`
+- rerun skill selection when the session changes phase, such as moving from implementation to post-task distillation or from distillation to commit-stage routing
 
 ## Audit artifacts
 

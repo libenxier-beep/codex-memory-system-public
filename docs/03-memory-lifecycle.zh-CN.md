@@ -13,6 +13,12 @@
 9. 记录结构性变更
 10. 周期性复核
 
+## 默认执行技能链
+
+- `post-collaboration-distillation` 负责产出候选列表、剔除低信号噪音，并给出路由意图。
+- `memory-commit` 负责执行已批准候选、应用用户的 reject-only 反馈，并写入最小必要更新。
+- `mem-search` 在需要历史证据时支持先召回再判断。
+
 ## 分层晋升路径
 
 - `memory-sidecar/evidence` -> 原始或近原始痕迹

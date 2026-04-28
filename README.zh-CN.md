@@ -46,6 +46,7 @@ flowchart LR
 - 加载策略（Ring0-Ring3 渐进加载）
 - 记忆写入安全门
 - 会后沉淀与历史召回流程
+- 任务后记忆维护的执行技能链
 - 可选的运行时 sidecar（`memory-sidecar/`），用于 evidence、sessions 与轻索引
 - 可选的私人 `personal_memory/` 支线，用于成长信号、私人模式和长期自我理解
 - 从扁平旧文件迁移到分层真源的最小增量模式
@@ -71,8 +72,10 @@ flowchart LR
 - `docs/06-operations-and-audit.md`：运维与审计实践
 - `docs/07-migration-pattern.md`：最小增量迁移模式
 - `docs/08-quickstart.md`：15 分钟可执行上手
+- `docs/09-execution-skills.md`：执行技能链与放置方式
 - `templates/memory-item-template.md`：长期记忆条目模板
 - `templates/distillation-report-template.md`：会后沉淀报告模板
+- `templates/commit-report-template.md`：commit 阶段路由报告模板
 - `scripts/bootstrap.sh`：一键初始化分层记忆目录
 - `scripts/validate_memory.py`：schema 与安全规则校验器
 - `checks/policy.json`：校验策略契约

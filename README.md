@@ -45,6 +45,7 @@ flowchart LR
 - Loading strategy (Ring0-Ring3 progressive loading)
 - Safety gates for memory writes
 - Distillation and recall workflows
+- Execution-skill chain for post-task memory maintenance
 - Default long-task handoff location: `PROJECT_ROOT/docs/progress.md`
 - Optional runtime sidecar (`memory-sidecar/`) for evidence, sessions, and lightweight indexes
 - Optional private `personal_memory/` branch for growth signals, private patterns, and self-understanding
@@ -71,8 +72,10 @@ flowchart LR
 - `docs/06-operations-and-audit.md` - operational practice and auditability
 - `docs/07-migration-pattern.md` - minimal-delta migration pattern
 - `docs/08-quickstart.md` - 15-minute executable quickstart
+- `docs/09-execution-skills.md` - execution-skill chain and placement
 - `templates/memory-item-template.md` - durable memory entry template
 - `templates/distillation-report-template.md` - post-session distillation template
+- `templates/commit-report-template.md` - commit-stage routing report template
 - `scripts/bootstrap.sh` - one-command layered memory scaffold
 - `scripts/validate_memory.py` - memory schema and safety validator
 - `checks/policy.json` - validator policy contract

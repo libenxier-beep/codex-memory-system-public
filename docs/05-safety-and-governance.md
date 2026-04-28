@@ -23,4 +23,5 @@ Reject or redact entries that include:
 - explicit boundaries over broad assumptions
 - reviewability over convenience
 - conservative persistence when confidence is low
+- filesystem write capability does not equal user authorization to write durable memory; treat capability and permission as separate checks
 - private human materials should use narrower write scopes and stronger privacy filtering than ordinary work memory

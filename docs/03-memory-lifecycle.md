@@ -13,6 +13,12 @@
 9. Log structural changes
 10. Revalidate over time
 
+## Default execution-skill chain
+
+- `post-collaboration-distillation` produces the candidate list, rejects low-signal noise, and decides routing intent.
+- `memory-commit` executes the approved candidate set, applies reject-only user feedback, and writes the minimum necessary updates.
+- `mem-search` supports recall-first retrieval before or during the lifecycle when prior evidence is needed.
+
 ## Layered promotion flow
 
 - `memory-sidecar/evidence` -> raw or near-raw traces

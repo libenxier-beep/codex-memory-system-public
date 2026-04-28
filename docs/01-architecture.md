@@ -34,10 +34,13 @@ Use a layered memory architecture instead of transcript dumping.
 - `memory_intake_checklist.md`: write gate
 - `memory_change_log.md`: structural change audit log
 
-5. Execution skills
-- `forge`: source material -> durable upgrades
-- `post-collaboration-distillation`: post-task conservative distillation
+5. Core execution skills
+- `post-collaboration-distillation`: post-task conservative distillation gate
+- `memory-commit`: commit-stage routing after candidate approval
 - `mem-search`: cross-session recall workflow
+
+6. Adjacent learning skill
+- `forge`: source material -> durable upgrades outside the default post-task memory-maintenance path
 
 ## Why this architecture
 
