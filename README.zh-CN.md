@@ -54,6 +54,7 @@ flowchart LR
 - 可落地的校验器与 CI 质量门禁
 - 基于 YAML 的 frontmatter 解析与聚焦 schema / 完整性校验
 - 按 profile 校验：`minimal` 只守核心分层，`full` 才要求 sidecar 目录
+- 仓库自带的 scaffold 和样例默认按 `full` profile 组织；下游接入时可以先从 `minimal` 起步，后续再补 sidecar。
 - 可直接跑通的脱敏样例
 
 ## 设计目标

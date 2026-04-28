@@ -54,6 +54,7 @@ flowchart LR
 - Validator script and CI checks for enforceable quality gates
 - YAML-backed frontmatter parsing plus focused schema and integrity checks
 - Profile-aware validation: `minimal` for the core layered kit, `full` when sidecar directories are part of the contract
+- The bundled scaffold and examples use the `full` profile; downstream adopters can start with `minimal` and add sidecar later.
 - Sanitized runnable examples
 
 ## Design goals
