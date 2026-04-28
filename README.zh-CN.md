@@ -52,6 +52,7 @@ flowchart LR
 - 从扁平旧文件迁移到分层真源的最小增量模式
 - 可执行的一键初始化脚本
 - 可落地的校验器与 CI 质量门禁
+- 基于 YAML 的 frontmatter 解析与聚焦 schema / 完整性校验
 - 可直接跑通的脱敏样例
 
 ## 设计目标
@@ -91,6 +92,7 @@ flowchart LR
 
 ```bash
 bash scripts/bootstrap.sh /tmp/agent-memory
+python3 -m pip install -r requirements.txt
 python3 scripts/validate_memory.py --root examples/sanitized-memory --policy checks/policy.json
 python3 tests/run_validator_fixtures.py
 ```

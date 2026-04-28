@@ -52,6 +52,7 @@ flowchart LR
 - Migration pattern from legacy flat files to layered source-of-truth
 - Executable bootstrap script for new projects
 - Validator script and CI checks for enforceable quality gates
+- YAML-backed frontmatter parsing plus focused schema and integrity checks
 - Sanitized runnable examples
 
 ## Design goals
@@ -91,6 +92,7 @@ flowchart LR
 
 ```bash
 bash scripts/bootstrap.sh /tmp/agent-memory
+python3 -m pip install -r requirements.txt
 python3 scripts/validate_memory.py --root examples/sanitized-memory --policy checks/policy.json
 python3 tests/run_validator_fixtures.py
 ```

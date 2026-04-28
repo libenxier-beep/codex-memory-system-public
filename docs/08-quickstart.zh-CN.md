@@ -8,12 +8,14 @@
 
 - bash
 - python3
+- pip
 - git
 
 ## 第一步：初始化分层记忆目录
 
 ```bash
 bash scripts/bootstrap.sh /tmp/agent-memory
+python3 -m pip install -r requirements.txt
 ```
 
 预期结果：
@@ -78,4 +80,5 @@ python3 tests/run_validator_fixtures.py
 - layer 或 scope 非法：使用 `checks/policy.json` 允许值
 - status 或日期非法：使用 `checks/policy.json` 的枚举值，并把日期写成 ISO 格式
 - `supersedes` 断链：引用已有 memory `id`，不要写文件路径
+- YAML 解析失败：先修正 frontmatter 结构，再检查更高层的记忆规则
 - 命中敏感信息检测：先脱敏再提交

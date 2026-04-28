@@ -8,12 +8,14 @@ Get a runnable memory mechanism quickly: bootstrap + validate + CI.
 
 - bash
 - python3
+- pip
 - git
 
 ## Step 1: Bootstrap a layered memory root
 
 ```bash
 bash scripts/bootstrap.sh /tmp/agent-memory
+python3 -m pip install -r requirements.txt
 ```
 
 Expected result:
@@ -78,4 +80,5 @@ Expected result:
 - Invalid layer or scope: use values from `checks/policy.json`
 - Invalid status or date: use the allowed enums and ISO date format enforced by `checks/policy.json`
 - Broken `supersedes`: reference an existing memory `id`, not a file path
+- YAML parse failure: fix malformed frontmatter before checking higher-level memory rules
 - Secret detection hit: redact before commit

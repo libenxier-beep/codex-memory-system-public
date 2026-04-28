@@ -1,0 +1,4 @@
+{
+  "exit_code": 1,
+  "contains": ["source must be a list", "status must be a string"]
+}

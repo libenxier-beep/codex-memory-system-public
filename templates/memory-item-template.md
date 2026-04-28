@@ -30,3 +30,5 @@ sync:
 ## When Not To Apply
 
 ## Review / Downgrade Conditions
+
+<!-- `supersedes` should contain memory ids only, never file paths. -->

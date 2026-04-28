@@ -6,42 +6,64 @@ import re
 import sys
 from pathlib import Path
 
+import yaml
 
-def parse_frontmatter(text: str):
-    if not text.startswith("---\n"):
+
+FRONTMATTER_DELIM = "---\n"
+
+
+def extract_frontmatter(text: str):
+    if not text.startswith(FRONTMATTER_DELIM):
         return None
-    end = text.find("\n---\n", 4)
+    end = text.find(f"\n{FRONTMATTER_DELIM}", len(FRONTMATTER_DELIM))
     if end == -1:
         return None
-    block = text[4:end].strip().splitlines()
-    keys = []
-    for line in block:
-        if not line.strip() or line.strip().startswith("#"):
-            continue
-        if ":" in line and not line.startswith(" "):
-            keys.append(line.split(":", 1)[0].strip())
-    return set(keys)
+    return text[len(FRONTMATTER_DELIM):end]
 
 
-def parse_scalar(text: str, key: str):
-    m = re.search(rf"^{re.escape(key)}:\s*([^\n]+)$", text, flags=re.MULTILINE)
-    if not m:
-        return None
-    return m.group(1).strip()
+def parse_frontmatter(text: str):
+    block = extract_frontmatter(text)
+    if block is None:
+        return None, "missing"
+    try:
+        data = yaml.safe_load(block) or {}
+    except (yaml.YAMLError, ValueError) as exc:
+        return None, f"invalid YAML frontmatter ({exc.__class__.__name__})"
+    if not isinstance(data, dict):
+        return None, "frontmatter must be a YAML mapping"
+    return data, None
 
 
-def parse_inline_list(text: str, key: str):
-    value = parse_scalar(text, key)
+def expect_str(data: dict, key: str):
+    value = data.get(key)
     if value is None:
-        return None
-    if value == "[]":
-        return []
-    if not (value.startswith("[") and value.endswith("]")):
-        return None
-    body = value[1:-1].strip()
-    if not body:
-        return []
-    return [item.strip().strip("'\"") for item in body.split(",") if item.strip()]
+        return None, f"missing {key} value"
+    if not isinstance(value, str):
+        return None, f"{key} must be a string"
+    return value.strip(), None
+
+
+def expect_date_string(data: dict, key: str):
+    value = data.get(key)
+    if value is None:
+        return None, f"missing {key} value"
+    if isinstance(value, dt.date):
+        return value.isoformat(), None
+    if not isinstance(value, str):
+        return None, f"{key} must be an ISO date string"
+    return value.strip(), None
+
+
+def expect_string_list(data: dict, key: str):
+    value = data.get(key)
+    if value is None:
+        return None, f"missing {key} value"
+    if not isinstance(value, list):
+        return None, f"{key} must be a list"
+    bad = [item for item in value if not isinstance(item, str)]
+    if bad:
+        return None, f"{key} must contain strings only"
+    return [item.strip() for item in value], None
 
 
 def is_valid_iso_date(value: str) -> bool:
@@ -97,6 +119,22 @@ def main() -> int:
     allowed_scopes = set(policy["allowed_scopes"])
     allowed_statuses = set(policy["allowed_statuses"])
     secret_patterns = [re.compile(p) for p in policy["secret_patterns"]]
+    field_schemas = {
+        "id": "string",
+        "title": "string",
+        "summary": "string",
+        "layer": "string",
+        "scope": "string",
+        "applies_to": "string",
+        "type": "string",
+        "stability": "string",
+        "source": "list",
+        "evidence": "list",
+        "regression_risk": "string",
+        "supersedes": "list",
+        "owner": "string",
+        "status": "string",
+    }
 
     errors = []
     expected_dirs = [
@@ -129,9 +167,9 @@ def main() -> int:
             if pat.search(text):
                 errors.append(f"{rel}: possible secret matched pattern {pat.pattern}")
 
-        fm = parse_frontmatter(text)
+        fm, fm_error = parse_frontmatter(text)
         if fm is not None:
-            item_id = parse_scalar(text, "id")
+            item_id = fm.get("id")
             if item_id:
                 if item_id in seen_ids:
                     errors.append(
@@ -151,49 +189,59 @@ def main() -> int:
             continue
 
         if fm is None:
-            errors.append(f"{rel}: missing YAML frontmatter")
+            if fm_error == "missing":
+                errors.append(f"{rel}: missing YAML frontmatter")
+            else:
+                errors.append(f"{rel}: {fm_error}")
             continue
 
-        missing = sorted(required - fm)
+        missing = sorted(required - set(fm.keys()))
         if missing:
             errors.append(f"{rel}: missing required keys: {', '.join(missing)}")
 
-        # layer value check
-        m = re.search(r"^layer:\s*([^\n]+)$", text, flags=re.MULTILINE)
-        if not m:
-            errors.append(f"{rel}: missing layer value")
-        else:
-            layer = m.group(1).strip()
-            if layer not in allowed_layers:
-                errors.append(f"{rel}: invalid layer '{layer}'")
-            if layer != rel.parts[1]:
-                errors.append(f"{rel}: layer '{layer}' does not match directory '{rel.parts[1]}'")
+        for field, expected in field_schemas.items():
+            if field not in fm:
+                continue
+            value = fm[field]
+            if expected == "string" and not isinstance(value, str):
+                errors.append(f"{rel}: {field} must be a string")
+            if expected == "list" and not isinstance(value, list):
+                errors.append(f"{rel}: {field} must be a list")
 
-        # scope value check
-        m = re.search(r"^scope:\s*([^\n]+)$", text, flags=re.MULTILINE)
-        if not m:
-            errors.append(f"{rel}: missing scope value")
-        else:
-            scope = m.group(1).strip()
-            if scope not in allowed_scopes:
-                errors.append(f"{rel}: invalid scope '{scope}'")
+        layer, err = expect_str(fm, "layer")
+        if err:
+            errors.append(f"{rel}: {err}")
+            layer = None
+        elif layer not in allowed_layers:
+            errors.append(f"{rel}: invalid layer '{layer}'")
+        elif layer != rel.parts[1]:
+            errors.append(f"{rel}: layer '{layer}' does not match directory '{rel.parts[1]}'")
 
-        status = parse_scalar(text, "status")
-        if status is None:
-            errors.append(f"{rel}: missing status value")
+        scope, err = expect_str(fm, "scope")
+        if err:
+            errors.append(f"{rel}: {err}")
+        elif scope not in allowed_scopes:
+            errors.append(f"{rel}: invalid scope '{scope}'")
+
+        status, err = expect_str(fm, "status")
+        if err:
+            errors.append(f"{rel}: {err}")
         elif status not in allowed_statuses:
             errors.append(f"{rel}: invalid status '{status}'")
 
-        last_reviewed = parse_scalar(text, "last_reviewed")
-        if last_reviewed is None:
-            errors.append(f"{rel}: missing last_reviewed value")
+        last_reviewed, err = expect_date_string(fm, "last_reviewed")
+        if err:
+            errors.append(f"{rel}: {err}")
         elif not is_valid_iso_date(last_reviewed):
             errors.append(f"{rel}: invalid last_reviewed '{last_reviewed}'")
 
-        supersedes = parse_inline_list(text, "supersedes")
-        if supersedes is None:
-            errors.append(f"{rel}: supersedes must be an inline list of memory ids")
+        supersedes, err = expect_string_list(fm, "supersedes")
+        if err:
+            errors.append(f"{rel}: {err}")
             supersedes = []
+        item_id = fm.get("id")
+        if item_id and item_id in supersedes:
+            errors.append(f"{rel}: supersedes cannot reference self id '{item_id}'")
         durable_entries.append((rel, supersedes))
 
     for rel, supersedes in durable_entries:

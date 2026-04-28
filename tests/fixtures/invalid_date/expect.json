@@ -1,4 +1,4 @@
 {
   "exit_code": 1,
-  "contains": ["invalid last_reviewed '2026-13-40'"]
+  "contains": ["invalid YAML frontmatter (ValueError)"]
 }

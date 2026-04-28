@@ -30,3 +30,5 @@ sync:
 ## When Not To Apply（不适用边界）
 
 ## Review / Downgrade Conditions（复核与降级条件）
+
+<!-- `supersedes` 只引用 memory id，不要写文件路径。 -->

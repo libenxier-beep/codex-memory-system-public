@@ -17,6 +17,10 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install validator dependency
+        run: |
+          python3 -m pip install -r requirements.txt
+
       - name: Bootstrap smoke test
         run: |
           bash scripts/bootstrap.sh /tmp/agent-memory
