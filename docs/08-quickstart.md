@@ -44,14 +44,27 @@ Expected result:
 
 - durable files under `memories/core`, `memories/platform`, and `memories/learnings` pass frontmatter checks
 - directory layout under `memories/` and `memory-sidecar/` matches the target-root contract
+- index targets, durable `id` uniqueness, durable `status`, `last_reviewed`, and `supersedes` all pass validator checks
 
-## Step 3: Wire into your own repo
+## Step 3: Run validator regression fixtures
+
+```bash
+python3 tests/run_validator_fixtures.py
+```
+
+Expected result:
+
+- the `valid` fixture passes
+- negative fixtures fail for the intended reason only
+- CI can catch validator regressions before a policy change lands
+
+## Step 4: Wire into your own repo
 
 1. Copy `scripts/bootstrap.sh`, `scripts/validate_memory.py`, and `checks/policy.json`.
 2. Add your own memory root path.
 3. Add the GitHub workflow from `.github/workflows/validate-memory.yml`.
 
-## Step 4: First practical usage
+## Step 5: First practical usage
 
 - Create one durable rule in `memories/core/` with frontmatter
 - Add one runtime session note in `memory-sidecar/sessions/`
@@ -63,4 +76,6 @@ Expected result:
 
 - Missing frontmatter: add YAML block between `---` markers
 - Invalid layer or scope: use values from `checks/policy.json`
+- Invalid status or date: use the allowed enums and ISO date format enforced by `checks/policy.json`
+- Broken `supersedes`: reference an existing memory `id`, not a file path
 - Secret detection hit: redact before commit

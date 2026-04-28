@@ -70,3 +70,15 @@ Use it when the primary job is to learn directly from an external article, note,
 
 - `templates/distillation-report-template.md`
 - `templates/commit-report-template.md`
+
+## Installable skill packages in this repo
+
+- `skills/post-collaboration-distillation/`
+- `skills/memory-commit/`
+
+These are intentionally minimal installable packages:
+
+- `SKILL.md` for trigger and workflow
+- `contract.md` for input/output boundary
+- `references/` for policy and routing detail
+- `examples/` for a concrete report shape

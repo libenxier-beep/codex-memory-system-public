@@ -1,0 +1,4 @@
+{
+  "exit_code": 1,
+  "contains": ["layer 'platform' does not match directory 'core'"]
+}

@@ -21,7 +21,12 @@ jobs:
         run: |
           bash scripts/bootstrap.sh /tmp/agent-memory
           test -f /tmp/agent-memory/memories/memory_index.md
+          python3 scripts/validate_memory.py --root /tmp/agent-memory --policy checks/policy.json
 
       - name: Validate sanitized examples
         run: |
           python3 scripts/validate_memory.py --root examples/sanitized-memory --policy checks/policy.json
+
+      - name: Run validator fixtures
+        run: |
+          python3 tests/run_validator_fixtures.py

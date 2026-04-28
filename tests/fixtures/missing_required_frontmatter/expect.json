@@ -1,0 +1,4 @@
+{
+  "exit_code": 1,
+  "contains": ["missing required keys: owner"]
+}

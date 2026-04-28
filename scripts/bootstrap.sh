@@ -62,6 +62,7 @@ Required frontmatter fields:
 - supersedes
 - last_reviewed
 - owner
+- status
 EOM
 
 cat > "$MEM_ROOT/memory_intake_checklist.md" <<'EOM'

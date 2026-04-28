@@ -1,0 +1,13 @@
+# Memory Index
+
+## Active Core Layer
+- `core/runtime_preferences.md`
+
+## Active Platform Layer
+- `platform/codex.md`
+
+## Active Learnings Layer
+- `learnings/ERRORS.md`
+
+## Active System Files
+- `rollout_summaries/README.md`

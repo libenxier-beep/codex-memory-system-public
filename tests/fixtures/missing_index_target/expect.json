@@ -1,0 +1,4 @@
+{
+  "exit_code": 1,
+  "contains": ["referenced target missing: core/missing.md"]
+}

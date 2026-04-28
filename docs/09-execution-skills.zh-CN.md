@@ -70,3 +70,15 @@
 
 - `templates/distillation-report-template.md`
 - `templates/commit-report-template.md`
+
+## 本仓库内可安装的技能包
+
+- `skills/post-collaboration-distillation/`
+- `skills/memory-commit/`
+
+这两个目录都刻意保持为“最小可安装版”：
+
+- `SKILL.md`：触发条件和主流程
+- `contract.md`：输入输出边界
+- `references/`：策略、路由和约束细节
+- `examples/`：最小报告样例

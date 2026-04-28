@@ -73,20 +73,26 @@ flowchart LR
 - `docs/07-migration-pattern.md` - minimal-delta migration pattern
 - `docs/08-quickstart.md` - 15-minute executable quickstart
 - `docs/09-execution-skills.md` - execution-skill chain and placement
+- `docs/10-case-study.md` - one sanitized end-to-end memory chain walkthrough
 - `templates/memory-item-template.md` - durable memory entry template
 - `templates/distillation-report-template.md` - post-session distillation template
 - `templates/commit-report-template.md` - commit-stage routing report template
+- `skills/post-collaboration-distillation/` - installable distillation skill package
+- `skills/memory-commit/` - installable commit-stage skill package
 - `scripts/bootstrap.sh` - one-command layered memory scaffold
 - `scripts/validate_memory.py` - memory schema and safety validator
 - `checks/policy.json` - validator policy contract
 - `.github/workflows/validate-memory.yml` - PR and mainline automation checks
 - `examples/sanitized-memory/` - runnable sanitized example set
+- `tests/fixtures/` - validator regression fixtures
+- `tests/run_validator_fixtures.py` - fixture harness for CI and local checks
 
 ## Quickstart
 
 ```bash
 bash scripts/bootstrap.sh /tmp/agent-memory
 python3 scripts/validate_memory.py --root examples/sanitized-memory --policy checks/policy.json
+python3 tests/run_validator_fixtures.py
 ```
 
 See `docs/08-quickstart.md` for full setup.

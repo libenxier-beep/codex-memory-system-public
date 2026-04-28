@@ -1,10 +1,11 @@
 {
   "required_frontmatter_fields": [
     "id", "title", "summary", "layer", "scope", "applies_to", "type", "stability",
-    "source", "evidence", "regression_risk", "supersedes", "last_reviewed", "owner"
+    "source", "evidence", "regression_risk", "supersedes", "last_reviewed", "owner", "status"
   ],
   "allowed_layers": ["core", "platform", "learnings"],
   "allowed_scopes": ["global", "runtime", "repo", "learning"],
+  "allowed_statuses": ["active", "draft", "deprecated", "superseded"],
   "secret_patterns": [
     "AKIA[0-9A-Z]{16}",
     "ghp_[A-Za-z0-9]{36,}",

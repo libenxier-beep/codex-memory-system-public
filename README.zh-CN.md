@@ -73,20 +73,26 @@ flowchart LR
 - `docs/07-migration-pattern.md`：最小增量迁移模式
 - `docs/08-quickstart.md`：15 分钟可执行上手
 - `docs/09-execution-skills.md`：执行技能链与放置方式
+- `docs/10-case-study.md`：一条脱敏完整链路案例
 - `templates/memory-item-template.md`：长期记忆条目模板
 - `templates/distillation-report-template.md`：会后沉淀报告模板
 - `templates/commit-report-template.md`：commit 阶段路由报告模板
+- `skills/post-collaboration-distillation/`：可安装的 distillation 技能包
+- `skills/memory-commit/`：可安装的 commit 阶段技能包
 - `scripts/bootstrap.sh`：一键初始化分层记忆目录
 - `scripts/validate_memory.py`：schema 与安全规则校验器
 - `checks/policy.json`：校验策略契约
 - `.github/workflows/validate-memory.yml`：PR 与主干自动校验
 - `examples/sanitized-memory/`：可运行脱敏样例
+- `tests/fixtures/`：validator 回归夹具
+- `tests/run_validator_fixtures.py`：本地与 CI 共用的夹具测试入口
 
 ## 快速开始
 
 ```bash
 bash scripts/bootstrap.sh /tmp/agent-memory
 python3 scripts/validate_memory.py --root examples/sanitized-memory --policy checks/policy.json
+python3 tests/run_validator_fixtures.py
 ```
 
 完整步骤见 `docs/08-quickstart.md`。
