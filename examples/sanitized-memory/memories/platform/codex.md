@@ -2,7 +2,8 @@
 id: platform-codex-local-memory-default
 title: Codex Local Memory Source Default
 summary: Use local layered memories as the default source in this runtime.
-scope: platform
+layer: platform
+scope: runtime
 applies_to: codex
 type: procedure
 stability: high

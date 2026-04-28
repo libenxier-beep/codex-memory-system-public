@@ -22,6 +22,7 @@ Use for private long-term understanding: growth signals, self-observation, value
 
 ## Boundary rules
 
+- `layer` answers where the item is stored. `scope` answers how broadly it applies. Do not collapse these into one field.
 - Never put temporary task state into `core`.
 - Never put platform-specific quirks into `core`.
 - Never let runtime sidecar materials bypass retrospective review into `core` directly.

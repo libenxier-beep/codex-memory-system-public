@@ -33,18 +33,33 @@ def has_hidden_control_chars(text: str) -> bool:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Validate layered memory markdown files")
-    parser.add_argument("--root", default="examples/sanitized-memory", help="memory root path")
+    parser = argparse.ArgumentParser(description="Validate layered memory target root")
+    parser.add_argument("--root", default="examples/sanitized-memory", help="target root path")
     parser.add_argument("--policy", default="checks/policy.json", help="policy json")
     args = parser.parse_args()
 
     root = Path(args.root)
     policy = json.loads(Path(args.policy).read_text(encoding="utf-8"))
     required = set(policy["required_frontmatter_fields"])
+    allowed_layers = set(policy["allowed_layers"])
     allowed_scopes = set(policy["allowed_scopes"])
     secret_patterns = [re.compile(p) for p in policy["secret_patterns"]]
 
     errors = []
+    expected_dirs = [
+        "memories/core",
+        "memories/platform",
+        "memories/learnings",
+        "memories/rollout_summaries",
+        "memory-sidecar/evidence",
+        "memory-sidecar/sessions",
+        "memory-sidecar/indexes",
+        "memory-sidecar/policies",
+    ]
+    for rel in expected_dirs:
+        if not (root / rel).exists():
+            errors.append(f"missing expected directory: {rel}")
+
     for path in sorted(root.rglob("*.md")):
         rel = path.relative_to(root)
         text = path.read_text(encoding="utf-8")
@@ -56,10 +71,14 @@ def main() -> int:
             if pat.search(text):
                 errors.append(f"{rel}: possible secret matched pattern {pat.pattern}")
 
-        # only validate durable entry frontmatter for non-README files in key layers
+        # only validate durable entry frontmatter for non-README files in work-memory durable layers
         if path.name.lower() == "readme.md":
             continue
-        if rel.parts[0] not in {"core", "platform", "learnings", "memory-sidecar"}:
+        if len(rel.parts) < 3:
+            continue
+        if rel.parts[0] != "memories":
+            continue
+        if rel.parts[1] not in {"core", "platform", "learnings"}:
             continue
 
         fm = parse_frontmatter(text)
@@ -71,7 +90,18 @@ def main() -> int:
         if missing:
             errors.append(f"{rel}: missing required keys: {', '.join(missing)}")
 
-        # scope value check (lightweight regex parse)
+        # layer value check
+        m = re.search(r"^layer:\s*([^\n]+)$", text, flags=re.MULTILINE)
+        if not m:
+            errors.append(f"{rel}: missing layer value")
+        else:
+            layer = m.group(1).strip()
+            if layer not in allowed_layers:
+                errors.append(f"{rel}: invalid layer '{layer}'")
+            if layer != rel.parts[1]:
+                errors.append(f"{rel}: layer '{layer}' does not match directory '{rel.parts[1]}'")
+
+        # scope value check
         m = re.search(r"^scope:\s*([^\n]+)$", text, flags=re.MULTILINE)
         if not m:
             errors.append(f"{rel}: missing scope value")

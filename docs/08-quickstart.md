@@ -34,6 +34,17 @@ python3 scripts/validate_memory.py --root examples/sanitized-memory --policy che
 
 Expected output: `VALIDATION PASSED`
 
+You can also validate the scaffold you just generated:
+
+```bash
+python3 scripts/validate_memory.py --root /tmp/agent-memory --policy checks/policy.json
+```
+
+Expected result:
+
+- durable files under `memories/core`, `memories/platform`, and `memories/learnings` pass frontmatter checks
+- directory layout under `memories/` and `memory-sidecar/` matches the target-root contract
+
 ## Step 3: Wire into your own repo
 
 1. Copy `scripts/bootstrap.sh`, `scripts/validate_memory.py`, and `checks/policy.json`.
@@ -42,7 +53,7 @@ Expected output: `VALIDATION PASSED`
 
 ## Step 4: First practical usage
 
-- Create one durable rule in `core/` with frontmatter
+- Create one durable rule in `memories/core/` with frontmatter
 - Add one runtime session note in `memory-sidecar/sessions/`
 - For a real project, keep the current-round handoff in `PROJECT_ROOT/docs/progress.md`
 - If you need private self-understanding, add `personal_memory/logs/raw_signals.md` and `personal_memory/logs/growth_log.md` as a separate branch
@@ -51,5 +62,5 @@ Expected output: `VALIDATION PASSED`
 ## Troubleshooting
 
 - Missing frontmatter: add YAML block between `---` markers
-- Invalid scope: use values from `checks/policy.json`
+- Invalid layer or scope: use values from `checks/policy.json`
 - Secret detection hit: redact before commit

@@ -3,6 +3,7 @@
 ## Write gate checklist
 
 - Value: durable and reusable?
+- Layer: does the storage location match the intended memory layer?
 - Scope: correctly layered?
 - Pollution: local-only details removed?
 - Safety: secrets/injection/unsafe payload excluded?

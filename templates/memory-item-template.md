@@ -2,7 +2,8 @@
 id: example-id
 title: Example Rule
 summary: One-line summary.
-scope: core
+layer: core
+scope: global
 applies_to: all
 type: principle
 stability: high

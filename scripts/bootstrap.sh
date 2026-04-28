@@ -82,6 +82,29 @@ cat > "$MEM_ROOT/memory_change_log.md" <<'EOM'
 EOM
 
 cat > "$MEM_ROOT/core/global_principles.md" <<'EOM'
+---
+id: core-global-principles
+title: Global Principles
+summary: Core durable principles for long-term memory behavior.
+layer: core
+scope: global
+applies_to: all
+type: principle
+stability: high
+source:
+  - bootstrap
+evidence:
+  - initial scaffold
+regression_risk: medium
+supersedes: []
+last_reviewed: 2026-04-28
+owner: team
+status: active
+sync:
+  codex: yes
+  other_runtime: optional
+---
+
 # Global Principles
 
 - Prefer evidence over plausibility.
@@ -89,6 +112,29 @@ cat > "$MEM_ROOT/core/global_principles.md" <<'EOM'
 EOM
 
 cat > "$MEM_ROOT/core/runtime_preferences.md" <<'EOM'
+---
+id: core-runtime-preferences
+title: Runtime Preferences
+summary: Durable interaction defaults for the active memory runtime.
+layer: core
+scope: global
+applies_to: all
+type: preference
+stability: high
+source:
+  - bootstrap
+evidence:
+  - initial scaffold
+regression_risk: medium
+supersedes: []
+last_reviewed: 2026-04-28
+owner: team
+status: active
+sync:
+  codex: yes
+  other_runtime: optional
+---
+
 # Runtime Preferences
 
 - Use concise, actionable communication.
@@ -96,6 +142,29 @@ cat > "$MEM_ROOT/core/runtime_preferences.md" <<'EOM'
 EOM
 
 cat > "$MEM_ROOT/core/load_policy.md" <<'EOM'
+---
+id: core-load-policy
+title: Load Policy
+summary: Ring-based loading policy for durable memory access.
+layer: core
+scope: global
+applies_to: all
+type: procedure
+stability: high
+source:
+  - bootstrap
+evidence:
+  - initial scaffold
+regression_risk: medium
+supersedes: []
+last_reviewed: 2026-04-28
+owner: team
+status: active
+sync:
+  codex: yes
+  other_runtime: optional
+---
+
 # Load Policy
 
 - Ring 0: memory_index + global_principles + runtime_preferences + platform adapter
@@ -105,6 +174,29 @@ cat > "$MEM_ROOT/core/load_policy.md" <<'EOM'
 EOM
 
 cat > "$MEM_ROOT/platform/codex.md" <<'EOM'
+---
+id: platform-codex-adapter
+title: Codex Adapter
+summary: Platform-specific routing rules for Codex memory behavior.
+layer: platform
+scope: runtime
+applies_to: codex
+type: procedure
+stability: high
+source:
+  - bootstrap
+evidence:
+  - initial scaffold
+regression_risk: medium
+supersedes: []
+last_reviewed: 2026-04-28
+owner: team
+status: active
+sync:
+  codex: yes
+  other_runtime: no
+---
+
 # Codex Adapter
 
 - Treat local memories as default source.
@@ -112,18 +204,87 @@ cat > "$MEM_ROOT/platform/codex.md" <<'EOM'
 EOM
 
 cat > "$MEM_ROOT/learnings/LEARNINGS.md" <<'EOM'
+---
+id: learnings-general
+title: Learnings
+summary: Reusable lessons and validated improvements.
+layer: learnings
+scope: learning
+applies_to: all
+type: learning
+stability: medium
+source:
+  - bootstrap
+evidence:
+  - initial scaffold
+regression_risk: low
+supersedes: []
+last_reviewed: 2026-04-28
+owner: team
+status: active
+sync:
+  codex: yes
+  other_runtime: optional
+---
+
 # Learnings
 
 - Add only reusable, validated lessons.
 EOM
 
 cat > "$MEM_ROOT/learnings/ERRORS.md" <<'EOM'
+---
+id: learnings-errors
+title: Errors
+summary: Recurring high-cost error patterns worth retaining.
+layer: learnings
+scope: learning
+applies_to: all
+type: learning
+stability: medium
+source:
+  - bootstrap
+evidence:
+  - initial scaffold
+regression_risk: low
+supersedes: []
+last_reviewed: 2026-04-28
+owner: team
+status: active
+sync:
+  codex: yes
+  other_runtime: optional
+---
+
 # Errors
 
 - Record recurring, high-cost error patterns.
 EOM
 
 cat > "$MEM_ROOT/learnings/FEATURE_REQUESTS.md" <<'EOM'
+---
+id: learnings-feature-requests
+title: Feature Requests
+summary: Cross-project improvements worth considering for the memory system.
+layer: learnings
+scope: learning
+applies_to: all
+type: learning
+stability: low
+source:
+  - bootstrap
+evidence:
+  - initial scaffold
+regression_risk: low
+supersedes: []
+last_reviewed: 2026-04-28
+owner: team
+status: active
+sync:
+  codex: yes
+  other_runtime: optional
+---
+
 # Feature Requests
 
 - Track cross-project memory system improvements.

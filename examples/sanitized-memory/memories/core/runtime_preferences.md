@@ -2,7 +2,8 @@
 id: runtime-pref-recall-first
 title: Recall First for Prior-Work Questions
 summary: Retrieve prior evidence before asking follow-up questions for historical queries.
-scope: core
+layer: core
+scope: global
 applies_to: all
 type: preference
 stability: high

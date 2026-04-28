@@ -2,6 +2,7 @@
 id: learning-memory-pollution
 title: Memory Pollution from Local Noise
 summary: Local task noise should not be promoted into durable core memory.
+layer: learnings
 scope: learning
 applies_to: all
 type: learning

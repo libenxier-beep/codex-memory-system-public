@@ -2,7 +2,8 @@
 id: example-id
 title: 示例规则
 summary: 一句话摘要。
-scope: core
+layer: core
+scope: global
 applies_to: all
 type: principle
 stability: high
