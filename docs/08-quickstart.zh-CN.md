@@ -31,7 +31,7 @@ python3 -m pip install -r requirements.txt
 ## 第二步：校验仓库内样例
 
 ```bash
-python3 scripts/validate_memory.py --root examples/sanitized-memory --policy checks/policy.json
+python3 scripts/validate_memory.py --root examples/sanitized-memory --policy checks/policy.json --profile full
 ```
 
 预期输出：`VALIDATION PASSED`
@@ -39,7 +39,7 @@ python3 scripts/validate_memory.py --root examples/sanitized-memory --policy che
 你也可以直接校验刚刚 bootstrap 出来的真实目录：
 
 ```bash
-python3 scripts/validate_memory.py --root /tmp/agent-memory --policy checks/policy.json
+python3 scripts/validate_memory.py --root /tmp/agent-memory --policy checks/policy.json --profile full
 ```
 
 预期结果：
@@ -47,6 +47,12 @@ python3 scripts/validate_memory.py --root /tmp/agent-memory --policy checks/poli
 - `memories/core`、`memories/platform`、`memories/learnings` 下的长期文件能通过 frontmatter 检查
 - `memories/` 与 `memory-sidecar/` 的目录结构符合 target-root 约定
 - `memory_index.md` 引用、长期条目 `id` 唯一性、`status`、`last_reviewed`、`supersedes` 也能通过校验
+
+如果你目前只接入核心分层，还没有 sidecar，可以直接使用默认的 `minimal` profile：
+
+```bash
+python3 scripts/validate_memory.py --root /tmp/agent-memory-min --policy checks/policy.json
+```
 
 ## 第三步：运行 validator 回归夹具
 
@@ -81,4 +87,5 @@ python3 tests/run_validator_fixtures.py
 - status 或日期非法：使用 `checks/policy.json` 的枚举值，并把日期写成 ISO 格式
 - `supersedes` 断链：引用已有 memory `id`，不要写文件路径
 - YAML 解析失败：先修正 frontmatter 结构，再检查更高层的记忆规则
+- 如果 sidecar 缺失但你本来就没启用它，请使用 `--profile minimal`
 - 命中敏感信息检测：先脱敏再提交

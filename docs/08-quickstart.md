@@ -31,7 +31,7 @@ Expected result:
 ## Step 2: Validate bundled examples
 
 ```bash
-python3 scripts/validate_memory.py --root examples/sanitized-memory --policy checks/policy.json
+python3 scripts/validate_memory.py --root examples/sanitized-memory --policy checks/policy.json --profile full
 ```
 
 Expected output: `VALIDATION PASSED`
@@ -39,7 +39,7 @@ Expected output: `VALIDATION PASSED`
 You can also validate the scaffold you just generated:
 
 ```bash
-python3 scripts/validate_memory.py --root /tmp/agent-memory --policy checks/policy.json
+python3 scripts/validate_memory.py --root /tmp/agent-memory --policy checks/policy.json --profile full
 ```
 
 Expected result:
@@ -47,6 +47,12 @@ Expected result:
 - durable files under `memories/core`, `memories/platform`, and `memories/learnings` pass frontmatter checks
 - directory layout under `memories/` and `memory-sidecar/` matches the target-root contract
 - index targets, durable `id` uniqueness, durable `status`, `last_reviewed`, and `supersedes` all pass validator checks
+
+If you adopt only the core layered kit and do not use a sidecar yet, validate with the default `minimal` profile:
+
+```bash
+python3 scripts/validate_memory.py --root /tmp/agent-memory-min --policy checks/policy.json
+```
 
 ## Step 3: Run validator regression fixtures
 
@@ -81,4 +87,5 @@ Expected result:
 - Invalid status or date: use the allowed enums and ISO date format enforced by `checks/policy.json`
 - Broken `supersedes`: reference an existing memory `id`, not a file path
 - YAML parse failure: fix malformed frontmatter before checking higher-level memory rules
+- Sidecar missing unexpectedly: use `--profile minimal` unless your target root is supposed to include the full sidecar contract
 - Secret detection hit: redact before commit

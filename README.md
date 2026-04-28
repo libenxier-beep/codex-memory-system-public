@@ -53,6 +53,7 @@ flowchart LR
 - Executable bootstrap script for new projects
 - Validator script and CI checks for enforceable quality gates
 - YAML-backed frontmatter parsing plus focused schema and integrity checks
+- Profile-aware validation: `minimal` for the core layered kit, `full` when sidecar directories are part of the contract
 - Sanitized runnable examples
 
 ## Design goals
@@ -93,7 +94,7 @@ flowchart LR
 ```bash
 bash scripts/bootstrap.sh /tmp/agent-memory
 python3 -m pip install -r requirements.txt
-python3 scripts/validate_memory.py --root examples/sanitized-memory --policy checks/policy.json
+python3 scripts/validate_memory.py --root examples/sanitized-memory --policy checks/policy.json --profile full
 python3 tests/run_validator_fixtures.py
 ```
 

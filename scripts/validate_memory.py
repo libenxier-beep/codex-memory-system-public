@@ -110,6 +110,12 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Validate layered memory target root")
     parser.add_argument("--root", default="examples/sanitized-memory", help="target root path")
     parser.add_argument("--policy", default="checks/policy.json", help="policy json")
+    parser.add_argument(
+        "--profile",
+        default="minimal",
+        choices=["minimal", "full"],
+        help="validation profile: minimal omits optional sidecar directories, full requires them",
+    )
     args = parser.parse_args()
 
     root = Path(args.root)
@@ -142,11 +148,16 @@ def main() -> int:
         "memories/platform",
         "memories/learnings",
         "memories/rollout_summaries",
-        "memory-sidecar/evidence",
-        "memory-sidecar/sessions",
-        "memory-sidecar/indexes",
-        "memory-sidecar/policies",
     ]
+    if args.profile == "full":
+        expected_dirs.extend(
+            [
+                "memory-sidecar/evidence",
+                "memory-sidecar/sessions",
+                "memory-sidecar/indexes",
+                "memory-sidecar/policies",
+            ]
+        )
     for rel in expected_dirs:
         if not (root / rel).exists():
             errors.append(f"missing expected directory: {rel}")

@@ -1,5 +1,5 @@
 {
-  "profile": "full",
+  "profile": "minimal",
   "exit_code": 0,
   "contains": ["VALIDATION PASSED"]
 }

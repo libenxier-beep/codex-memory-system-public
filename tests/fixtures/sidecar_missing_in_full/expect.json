@@ -1,0 +1,11 @@
+{
+  "base": "minimal_no_sidecar",
+  "profile": "full",
+  "exit_code": 1,
+  "contains": [
+    "missing expected directory: memory-sidecar/evidence",
+    "missing expected directory: memory-sidecar/sessions",
+    "missing expected directory: memory-sidecar/indexes",
+    "missing expected directory: memory-sidecar/policies"
+  ]
+}

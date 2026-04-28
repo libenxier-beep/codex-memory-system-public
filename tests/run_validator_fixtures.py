@@ -35,10 +35,13 @@ def overlay_tree(src: Path, dst: Path):
 
 def run_case(case_dir: Path):
     expectation = json.loads((case_dir / "expect.json").read_text(encoding="utf-8"))
+    profile = expectation.get("profile", "minimal")
+    base_name = expectation.get("base", "valid")
+    base_root = FIXTURES_ROOT / base_name
     with tempfile.TemporaryDirectory(prefix=f"{case_dir.name}-") as tmpdir:
         root = Path(tmpdir) / "root"
-        shutil.copytree(VALID_ROOT, root)
-        if case_dir.name != "valid":
+        shutil.copytree(base_root, root)
+        if case_dir.name != base_name:
             overlay_tree(case_dir, root)
 
         result = subprocess.run(
@@ -49,6 +52,8 @@ def run_case(case_dir: Path):
                 str(root),
                 "--policy",
                 str(POLICY),
+                "--profile",
+                profile,
             ],
             capture_output=True,
             text=True,
