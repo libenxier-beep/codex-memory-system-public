@@ -1,5 +1,7 @@
 # 08 Quickstart (15 Minutes)
 
+[中文](./08-quickstart.zh-CN.md) | English
+
 ## Goal
 
 Get a runnable memory mechanism quickly: bootstrap + validate + CI.

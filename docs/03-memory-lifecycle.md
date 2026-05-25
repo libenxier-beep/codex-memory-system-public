@@ -1,5 +1,7 @@
 # 03 Memory Lifecycle
 
+[中文](./03-memory-lifecycle.zh-CN.md) | English
+
 ## Lifecycle loop
 
 1. Capture runtime evidence

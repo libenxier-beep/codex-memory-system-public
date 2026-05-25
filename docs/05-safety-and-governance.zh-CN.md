@@ -1,5 +1,7 @@
 # 05 安全与治理
 
+中文 | [English](./05-safety-and-governance.md)
+
 ## 写入门禁清单
 
 - Value：是否长期且可复用？

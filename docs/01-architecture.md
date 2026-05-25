@@ -1,5 +1,7 @@
 # 01 Architecture
 
+[中文](./01-architecture.zh-CN.md) | English
+
 ## Core idea
 
 Use a layered memory architecture instead of transcript dumping.

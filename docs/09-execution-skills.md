@@ -1,5 +1,7 @@
 # 09 Execution Skills
 
+[中文](./09-execution-skills.zh-CN.md) | English
+
 ## Purpose
 
 This repository separates memory architecture from execution skills, but two skills are central to making the architecture usable in real work:

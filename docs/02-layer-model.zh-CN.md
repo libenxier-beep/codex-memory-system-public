@@ -1,5 +1,7 @@
 # 02 分层模型
 
+中文 | [English](./02-layer-model.md)
+
 ## 分层职责
 
 ### core

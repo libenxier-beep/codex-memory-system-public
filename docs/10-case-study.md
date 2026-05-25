@@ -1,5 +1,7 @@
 # 10 Case Study
 
+[中文](./10-case-study.zh-CN.md) | English
+
 ## Goal
 
 Show one sanitized end-to-end chain:

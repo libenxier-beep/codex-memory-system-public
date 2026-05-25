@@ -1,5 +1,7 @@
 # 04 Routing and Loading
 
+[中文](./04-routing-and-loading.zh-CN.md) | English
+
 ## Progressive loading (Ring model)
 
 ### Ring 0 (always load)

@@ -1,5 +1,7 @@
 # 02 Layer Model
 
+[中文](./02-layer-model.zh-CN.md) | English
+
 ## Layer responsibilities
 
 ### core

@@ -1,9 +1,8 @@
 # Codex Long-Term Memory System (Sanitized)
 
-A public, sanitized blueprint of a layered long-term memory system for coding agents.
+[中文](./README.zh-CN.md) | English
 
-中文说明请看: [README.zh-CN.md](./README.zh-CN.md)
-Chinese docs in all key files use the `*.zh-CN.md` suffix.
+A public, sanitized blueprint of a layered long-term memory system for coding agents.
 
 ## System Flow
 

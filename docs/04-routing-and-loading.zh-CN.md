@@ -1,5 +1,7 @@
 # 04 路由与加载
 
+中文 | [English](./04-routing-and-loading.md)
+
 ## 渐进加载（Ring 模型）
 
 ### Ring 0（始终加载）

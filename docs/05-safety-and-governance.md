@@ -1,5 +1,7 @@
 # 05 Safety and Governance
 
+[中文](./05-safety-and-governance.zh-CN.md) | English
+
 ## Write gate checklist
 
 - Value: durable and reusable?

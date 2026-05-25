@@ -1,5 +1,7 @@
 # 07 Minimal-Delta Migration Pattern
 
+[中文](./07-migration-pattern.zh-CN.md) | English
+
 ## Objective
 
 Migrate from flat legacy memory files to layered architecture with minimal disruption.

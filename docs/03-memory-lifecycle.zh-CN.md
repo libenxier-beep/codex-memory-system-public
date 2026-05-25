@@ -1,5 +1,7 @@
 # 03 记忆生命周期
 
+中文 | [English](./03-memory-lifecycle.md)
+
 ## 生命周期闭环
 
 1. 采集运行时证据

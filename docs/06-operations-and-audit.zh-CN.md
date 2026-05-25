@@ -1,5 +1,7 @@
 # 06 运维与审计
 
+中文 | [English](./06-operations-and-audit.md)
+
 ## 运维例行项
 
 - 仅在有意义会话后运行任务后沉淀

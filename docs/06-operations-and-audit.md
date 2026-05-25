@@ -1,5 +1,7 @@
 # 06 Operations and Audit
 
+[中文](./06-operations-and-audit.zh-CN.md) | English
+
 ## Operational routines
 
 - run post-task distillation only for meaningful sessions
