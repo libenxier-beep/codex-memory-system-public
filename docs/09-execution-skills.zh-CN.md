@@ -86,4 +86,4 @@
 - `references/`：策略、路由和约束细节
 - `examples/`：最小报告样例
 
-`domain-knowledge-distiller` 是更完整的运行时技能，用来把高价值资料蒸馏成可长期调用、可路由的 `work_contexts` 领域知识；它包含 references、schemas、templates、eval prompts 和轻量 context lint 脚本。
+`domain-knowledge-distiller` 是更完整的运行时技能，用来把高价值资料蒸馏成可长期调用、可路由的 `work_contexts` 领域知识；它包含 references、schemas、templates、eval prompts、fixtures、context linter 和 static eval runner。

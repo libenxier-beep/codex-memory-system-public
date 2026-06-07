@@ -1,6 +1,6 @@
 ---
 name: domain-knowledge-distiller
-description: Use when a user asks to absorb, distill, internalize, deconstruct, or abstract reusable principles, patterns, philosophy, architecture, or tactics from articles, architectures, quotes, failure cases, or other high-value resources into durable work_contexts knowledge for future agent use; includes triggers like 吸收, 沉淀, 内化, 解构, 抽象成原则, 以后能用, 放进work_contexts.
+description: Use when a user asks to absorb, distill, internalize, deconstruct, or abstract articles, architectures, quotes, cases, or other high-value sources into reusable domain knowledge for future agent use; triggers include 吸收, 沉淀, 内化, 抽象成原则, 以后能用, work_contexts.
 ---
 
 # Domain Knowledge Distiller
@@ -34,11 +34,16 @@ description: Use when a user asks to absorb, distill, internalize, deconstruct, 
    - Read `references/agent-learning-loop.md` when building durable knowledge cards.
    - Each important item needs future-use metadata: use cases, non-use cases, retrieval keys, source refs, confidence, and last reviewed date.
 5. Route into a domain mini wiki.
-   - Default path: `/Users/liben/.codex/memories/work_contexts/<domain_slug>/`.
+   - Resolve the domain context path in this order:
+     1. User-provided target path.
+     2. `$CODEX_MEMORY_ROOT/work_contexts/<domain_slug>/`.
+     3. `$CODEX_HOME/memories/work_contexts/<domain_slug>/`.
+     4. `~/.codex/memories/work_contexts/<domain_slug>/`.
    - Read `references/retrieval-routing.md` before creating or restructuring the wiki.
    - Use templates from `templates/` when creating new pages or cards.
 6. Validate the result.
    - Run `python3 scripts/lint_domain_context.py <domain_context_path>` when files are created or edited.
+   - Run `python3 scripts/run_static_evals.py` before publishing skill changes.
    - Perform one retrieval pressure check: given a future task prompt, verify that `README.md -> index.md/retrieval.md -> target page` finds the relevant knowledge.
 
 ## Read Only If Needed
@@ -51,6 +56,7 @@ description: Use when a user asks to absorb, distill, internalize, deconstruct, 
 - `schemas/`: Use when checking structured fields, source manifest entries, or frontmatter.
 - `evals/prompts.csv`: Use when testing trigger behavior and retrieval quality.
 - `scripts/lint_domain_context.py`: Run after writing or modifying a domain context.
+- `scripts/run_static_evals.py`: Run when changing the skill, linter, templates, schemas, or eval fixtures.
 
 ## Output Contract
 
@@ -67,12 +73,13 @@ Return:
 - Explicit trigger: "Use domain-knowledge-distiller to absorb this article into work_contexts."
 - Implicit trigger: "This failure case is valuable; turn it into principles I can use later."
 - Negative control: "Summarize this article in 300 words."
-- Evidence check: The output includes source provenance, knowledge cards, retrieval keys, updated index/retrieval pages, and a successful lint run.
+- Evidence check: The output includes source provenance, knowledge cards, retrieval keys, updated index/retrieval pages, and successful lint/static eval runs.
 
 ## Common Mistakes
 
 - Producing a polished summary but no reusable mechanism, boundary, or retrieval metadata.
 - Copying whole articles into memory instead of storing compact source cards, links, short excerpts, and derived knowledge.
 - Putting every domain into one large wiki instead of one `work_contexts/<domain_slug>/` per domain.
+- Hardcoding a personal absolute path in reusable skill instructions; resolve memory roots from user input or environment variables.
 - Making `README.md` a tutorial; keep it an entry point with shortest read paths.
 - Writing principles without non-use cases, source refs, or confidence.

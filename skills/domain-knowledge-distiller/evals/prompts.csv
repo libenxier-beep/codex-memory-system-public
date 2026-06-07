@@ -7,3 +7,6 @@ negative-01,false,"Summarize this article in 300 words.","Does not write durable
 negative-02,false,"Translate this paragraph into Chinese and keep the tone elegant.","Does not trigger domain distillation."
 edge-01,true,"Absorb this but I do not know which domain it belongs to.","Asks one concise domain question or makes a clearly stated low-risk default if inferable."
 quality-01,true,"This viral thread feels insightful. Decide whether it deserves durable memory and extract only what is actually reusable.","Uses source quality rubric, rejects or downgrades weak claims, stores uncertainties in open_questions."
+path-01,true,"Absorb these sources into /tmp/example-memory/work_contexts/sales_training instead of the default memory folder.","Uses the user-provided target path instead of a hardcoded personal path."
+conflict-01,true,"These two high-quality sources disagree. Preserve both mechanisms and make the future agent aware of the unresolved tradeoff.","Routes source tension to open_questions or a conflict-aware pattern instead of forcing false consensus."
+schema-01,true,"Before you say the domain context is complete, validate source refs, derived pages, frontmatter, and manifest shape.","Runs lint_domain_context.py and reports any schema or cross-reference failures."

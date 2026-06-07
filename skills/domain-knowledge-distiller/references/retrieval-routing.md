@@ -1,8 +1,11 @@
 # Retrieval Routing
 
-Use this when building or updating a domain context under:
+Use this when building or updating a domain context. Resolve the target path in this order:
 
-`/Users/liben/.codex/memories/work_contexts/<domain_slug>/`
+1. User-provided target path.
+2. `$CODEX_MEMORY_ROOT/work_contexts/<domain_slug>/`.
+3. `$CODEX_HOME/memories/work_contexts/<domain_slug>/`.
+4. `~/.codex/memories/work_contexts/<domain_slug>/`.
 
 ## Default Mini Wiki
 

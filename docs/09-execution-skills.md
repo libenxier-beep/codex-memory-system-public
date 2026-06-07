@@ -86,4 +86,4 @@ Use it when the primary job is to learn directly from an external article, note,
 - `references/` for policy and routing detail
 - `examples/` for a concrete report shape
 
-`domain-knowledge-distiller` is a fuller runtime skill for turning high-value sources into durable, routed `work_contexts` domain knowledge. It includes references, schemas, templates, eval prompts, and a lightweight context linter.
+`domain-knowledge-distiller` is a fuller runtime skill for turning high-value sources into durable, routed `work_contexts` domain knowledge. It includes references, schemas, templates, eval prompts, fixtures, a context linter, and a static eval runner.
