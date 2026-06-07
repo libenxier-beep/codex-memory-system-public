@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Claim provenance",
+  "type": "object",
+  "required": ["claim", "source_refs", "confidence", "inference_level", "last_reviewed"],
+  "properties": {
+    "claim": { "type": "string", "minLength": 1 },
+    "source_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    },
+    "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+    "inference_level": { "type": "string", "enum": ["direct", "derived", "speculative"] },
+    "last_reviewed": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+  },
+  "additionalProperties": false
+}

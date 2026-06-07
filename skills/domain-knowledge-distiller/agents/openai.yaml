@@ -1,0 +1,4 @@
+interface:
+  display_name: "Domain Knowledge Distiller"
+  short_description: "Turn sources into reusable domain contexts"
+  default_prompt: "Use $domain-knowledge-distiller to absorb these sources into a future-callable work_context."

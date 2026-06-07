@@ -77,10 +77,13 @@
 
 - `skills/post-collaboration-distillation/`
 - `skills/memory-commit/`
+- `skills/domain-knowledge-distiller/`
 
-这两个目录都刻意保持为“最小可安装版”：
+`post-collaboration-distillation` 和 `memory-commit` 都刻意保持为“最小可安装版”，它们使用：
 
 - `SKILL.md`：触发条件和主流程
 - `contract.md`：输入输出边界
 - `references/`：策略、路由和约束细节
 - `examples/`：最小报告样例
+
+`domain-knowledge-distiller` 是更完整的运行时技能，用来把高价值资料蒸馏成可长期调用、可路由的 `work_contexts` 领域知识；它包含 references、schemas、templates、eval prompts 和轻量 context lint 脚本。
