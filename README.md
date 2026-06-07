@@ -81,6 +81,7 @@ flowchart LR
 - `templates/commit-report-template.md` - commit-stage routing report template
 - `skills/post-collaboration-distillation/` - installable distillation skill package
 - `skills/memory-commit/` - installable commit-stage skill package
+- `skills/domain-knowledge-distiller/` - installable domain knowledge distillation skill package
 - `scripts/bootstrap.sh` - one-command layered memory scaffold
 - `scripts/validate_memory.py` - memory schema and safety validator
 - `checks/policy.json` - validator policy contract

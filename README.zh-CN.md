@@ -80,6 +80,7 @@ flowchart LR
 - `templates/commit-report-template.md`：commit 阶段路由报告模板
 - `skills/post-collaboration-distillation/`：可安装的 distillation 技能包
 - `skills/memory-commit/`：可安装的 commit 阶段技能包
+- `skills/domain-knowledge-distiller/`：可安装的领域知识蒸馏技能包
 - `scripts/bootstrap.sh`：一键初始化分层记忆目录
 - `scripts/validate_memory.py`：schema 与安全规则校验器
 - `checks/policy.json`：校验策略契约

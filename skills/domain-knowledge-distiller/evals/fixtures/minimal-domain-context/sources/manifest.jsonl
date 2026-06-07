@@ -1,0 +1,1 @@
+{"id":"fixture-source-001","type":"other","title":"Fixture source","author_or_org":"local test","url_or_path":"evals/fixtures/minimal-domain-context","accessed_at":"2026-05-31","quality":"high","copyright_boundary":"local-fixture","summary":"Synthetic source used to validate the lint script.","derived_pages":["principles.md"],"notes":"Not a real source."}

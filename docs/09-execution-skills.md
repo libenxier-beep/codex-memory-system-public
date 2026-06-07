@@ -77,10 +77,13 @@ Use it when the primary job is to learn directly from an external article, note,
 
 - `skills/post-collaboration-distillation/`
 - `skills/memory-commit/`
+- `skills/domain-knowledge-distiller/`
 
-These are intentionally minimal installable packages:
+`post-collaboration-distillation` and `memory-commit` are intentionally minimal installable packages. They use:
 
 - `SKILL.md` for trigger and workflow
 - `contract.md` for input/output boundary
 - `references/` for policy and routing detail
 - `examples/` for a concrete report shape
+
+`domain-knowledge-distiller` is a fuller runtime skill for turning high-value sources into durable, routed `work_contexts` domain knowledge. It includes references, schemas, templates, eval prompts, fixtures, a context linter, and a static eval runner.

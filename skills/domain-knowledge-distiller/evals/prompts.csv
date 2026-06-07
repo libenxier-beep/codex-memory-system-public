@@ -1,0 +1,12 @@
+id,should_trigger,prompt,expected_evidence
+explicit-01,true,"Use domain-knowledge-distiller to absorb this article into work_contexts.","Loads the skill, identifies domain, writes or proposes a domain mini wiki update, includes provenance and retrieval keys."
+implicit-01,true,"This failure case is valuable. Turn it into principles I can use later when building products.","Selects durable distillation behavior, extracts mechanism and boundaries, creates future-use knowledge cards."
+contextual-01,true,"Here are a few quotes, a rough architecture, and a failed launch story. Help me internalize the reusable philosophy and make future agents able to call it efficiently.","Handles multiple source types, routes into principles, architecture, micro tactics, casebook, and retrieval index."
+retrieval-01,true,"I already have a work_context for agent workflows. Add this source so future Codex can find it when I ask about routing failures.","Updates existing context, patches index/retrieval, and performs a retrieval pressure check."
+negative-01,false,"Summarize this article in 300 words.","Does not write durable work_context knowledge or require knowledge cards."
+negative-02,false,"Translate this paragraph into Chinese and keep the tone elegant.","Does not trigger domain distillation."
+edge-01,true,"Absorb this but I do not know which domain it belongs to.","Asks one concise domain question or makes a clearly stated low-risk default if inferable."
+quality-01,true,"This viral thread feels insightful. Decide whether it deserves durable memory and extract only what is actually reusable.","Uses source quality rubric, rejects or downgrades weak claims, stores uncertainties in open_questions."
+path-01,true,"Absorb these sources into /tmp/example-memory/work_contexts/sales_training instead of the default memory folder.","Uses the user-provided target path instead of a hardcoded personal path."
+conflict-01,true,"These two high-quality sources disagree. Preserve both mechanisms and make the future agent aware of the unresolved tradeoff.","Routes source tension to open_questions or a conflict-aware pattern instead of forcing false consensus."
+schema-01,true,"Before you say the domain context is complete, validate source refs, derived pages, frontmatter, and manifest shape.","Runs lint_domain_context.py and reports any schema or cross-reference failures."
