@@ -1,0 +1,30 @@
+kind: note-payload
+intake_id: MjMxNDQ3MDI2
+operation: create
+final_type: seed
+template_id: TP_Seed_认知半成品
+target_note_title: Seed_先写出对的感觉再找对的词
+target_note_path: 20_Areas/25_Personal_Growth/Seeds/Seed_先写出对的感觉再找对的词.md
+frontmatter:
+  created: 2026-04-14 12:48
+  type: seed
+  status: 🌱
+  tags: []
+  source: flomo
+  source_id: MjMxNDQ3MDI2
+  memo_ref: https://flomoapp.com/...
+sections:
+  raw_signal: 先写出对的感觉再找对的词，不要一开始就卡在命名上。
+  current_read: 这是一个关于先保留表达感受、后补命名的种子想法。
+  why_keep:
+    - 对表达与产出的顺序有长期价值
+  open_questions:
+    - 这条判断在哪些场景不成立
+  growth_path:
+    - 可能长成 viewpoint 或 cognition
+  context:
+    related:
+      - null
+  ai_notes:
+    - 保留原句
+    - 轻度推断

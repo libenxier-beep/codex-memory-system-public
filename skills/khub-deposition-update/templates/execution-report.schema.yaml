@@ -1,0 +1,16 @@
+kind: execution-report
+required:
+  - intake_id
+  - operation
+  - result
+  - target_note_path
+  - template_id
+  - write_attempted
+optional:
+  - fidelity_metrics
+allowed_results:
+  - added
+  - updated
+  - skipped
+  - blocked
+  - conflict

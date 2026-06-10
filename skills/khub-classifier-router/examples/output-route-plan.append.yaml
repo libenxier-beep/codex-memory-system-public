@@ -1,0 +1,21 @@
+kind: route-plan
+intake_id: MjMxNzk4NzEz
+source: flomo
+source_id: MjMxNzk4NzEz
+timestamp: 2026-04-16 11:10
+normalized_title: 系统架构设计不止模块与数据流而是八块骨架
+final_type: cognition
+target_area: 23_Coding
+target_bucket: Cognitions
+template_id: TP_Cognition_认知框架
+operation: append
+target_note_title: Cognition_系统架构设计不止模块与数据流而是八块骨架
+target_note_path: 20_Areas/23_Coding/Cognitions/Cognition_系统架构设计不止模块与数据流而是八块骨架.md
+confidence: 0.79
+related_candidates:
+  - 20_Areas/23_Coding/Cognitions/Cognition_系统架构设计不止模块与数据流而是八块骨架.md
+dedupe_basis:
+  - title_similarity
+  - semantic_overlap
+review_needed: false
+write_blocked: false

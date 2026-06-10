@@ -77,8 +77,17 @@ Use it when the primary job is to learn directly from an external article, note,
 
 - `skills/post-collaboration-distillation/`
 - `skills/memory-commit/`
+- `skills/flomo-daily-intake/`
+- `skills/khub-classifier-router/`
+- `skills/khub-deposition-update/`
 
-These are intentionally minimal installable packages:
+The first two are the default post-task memory-maintenance chain. The Flomo/KHub skills form a source-to-Obsidian chain:
+
+1. `flomo-daily-intake` collects source-scoped memo material.
+2. `khub-classifier-router` classifies, routes, checks duplicates, chooses templates, and blocks unsafe writes.
+3. `khub-deposition-update` turns validated route plans into Obsidian create or append operations.
+
+The installable packages keep this shape:
 
 - `SKILL.md` for trigger and workflow
 - `contract.md` for input/output boundary

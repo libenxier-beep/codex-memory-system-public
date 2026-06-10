@@ -81,6 +81,10 @@ flowchart LR
 - `templates/commit-report-template.md` - commit-stage routing report template
 - `skills/post-collaboration-distillation/` - installable distillation skill package
 - `skills/memory-commit/` - installable commit-stage skill package
+- `skills/flomo-daily-intake/` - Flomo intake skill for source-scoped memo collection
+- `skills/khub-classifier-router/` - classification, routing, template, dedupe, and write-gate skill
+- `skills/khub-deposition-update/` - Obsidian create/append execution skill for validated route plans
+- `skills/workflow-principles.md` - shared Flomo-to-knowledge-base workflow principles
 - `scripts/bootstrap.sh` - one-command layered memory scaffold
 - `scripts/validate_memory.py` - memory schema and safety validator
 - `checks/policy.json` - validator policy contract

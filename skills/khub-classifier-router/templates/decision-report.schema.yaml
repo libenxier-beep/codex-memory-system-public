@@ -1,0 +1,17 @@
+kind: decision-report
+required:
+  - intake_id
+  - status
+  - source
+  - source_id
+  - timestamp
+  - raw_link
+  - raw_text
+  - agent_read
+  - best_candidates
+  - why_not_fit
+  - suggested_next_decisions
+  - write_blocked
+allowed_status:
+  - no_fit
+  - needs_human_decision

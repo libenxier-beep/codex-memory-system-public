@@ -1,0 +1,19 @@
+kind: route-plan
+intake_id: MjMxNDQ3MDI2
+source: flomo
+source_id: MjMxNDQ3MDI2
+timestamp: 2026-04-14 12:48
+normalized_title: 先写出对的感觉再找对的词
+final_type: seed
+target_area: 25_Personal_Growth
+target_bucket: Seeds
+template_id: TP_Seed_认知半成品
+operation: create
+target_note_title: Seed_先写出对的感觉再找对的词
+target_note_path: 20_Areas/25_Personal_Growth/Seeds/Seed_先写出对的感觉再找对的词.md
+confidence: 0.88
+related_candidates: []
+dedupe_basis:
+  - source_id
+review_needed: false
+write_blocked: false

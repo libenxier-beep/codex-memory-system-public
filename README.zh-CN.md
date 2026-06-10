@@ -80,6 +80,10 @@ flowchart LR
 - `templates/commit-report-template.md`：commit 阶段路由报告模板
 - `skills/post-collaboration-distillation/`：可安装的 distillation 技能包
 - `skills/memory-commit/`：可安装的 commit 阶段技能包
+- `skills/flomo-daily-intake/`：面向 Flomo 来源的 memo intake 技能
+- `skills/khub-classifier-router/`：分类、路由、模板、去重和写入门禁技能
+- `skills/khub-deposition-update/`：把已验证 route plan 写入 Obsidian 的创建/追加技能
+- `skills/workflow-principles.md`：Flomo 到知识库链路的共享工作原则
 - `scripts/bootstrap.sh`：一键初始化分层记忆目录
 - `scripts/validate_memory.py`：schema 与安全规则校验器
 - `checks/policy.json`：校验策略契约

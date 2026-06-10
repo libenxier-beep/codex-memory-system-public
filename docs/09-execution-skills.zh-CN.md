@@ -77,8 +77,17 @@
 
 - `skills/post-collaboration-distillation/`
 - `skills/memory-commit/`
+- `skills/flomo-daily-intake/`
+- `skills/khub-classifier-router/`
+- `skills/khub-deposition-update/`
 
-这两个目录都刻意保持为“最小可安装版”：
+前两个组成默认的任务后记忆维护链。Flomo/KHub 三个技能组成 source-to-Obsidian 链路：
+
+1. `flomo-daily-intake` 收集指定来源范围内的 memo 材料。
+2. `khub-classifier-router` 负责分类、路由、去重、模板选择和写入门禁。
+3. `khub-deposition-update` 把已验证 route plan 变成 Obsidian 创建或追加操作。
+
+这些可安装包保持同一种结构：
 
 - `SKILL.md`：触发条件和主流程
 - `contract.md`：输入输出边界

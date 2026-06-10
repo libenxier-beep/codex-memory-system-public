@@ -1,0 +1,22 @@
+kind: route-plan
+required:
+  - intake_id
+  - source
+  - source_id
+  - timestamp
+  - normalized_title
+  - final_type
+  - target_area
+  - target_bucket
+  - template_id
+  - operation
+  - target_note_title
+  - target_note_path
+  - confidence
+  - review_needed
+  - write_blocked
+allowed_operations:
+  - create
+  - append
+  - skip_duplicate
+  - split_new_note

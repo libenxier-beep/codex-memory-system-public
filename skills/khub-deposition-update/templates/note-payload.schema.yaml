@@ -1,0 +1,14 @@
+kind: note-payload
+required:
+  - intake_id
+  - operation
+  - final_type
+  - template_id
+  - target_note_title
+  - target_note_path
+  - frontmatter
+  - sections
+allowed_operations:
+  - create
+  - append
+  - split_new_note
